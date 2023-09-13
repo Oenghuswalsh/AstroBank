@@ -7,7 +7,7 @@ I will be using:
 PHP
 HTML
 CSS
-JAVASCRITP
+JAVASCRIPT
 JQUERY
 MYSQL
 I will develop the wibsite localy using PHPmyadmin, Mysql, VSCode, Chrome and Figma.
