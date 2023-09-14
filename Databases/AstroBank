@@ -1,0 +1,58 @@
+-- AstroBank
+-- mysql version
+-- as of 13/09/2023 by Oenghus Walsh
+
+CREATE DATABASE IF NOT EXISTS astrobank DEFAULT CHARSET = utf8;
+USE astrobank;
+
+DROP TABLE IF EXISTS users;
+CREATE TABLE users (
+    user_id              INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+    name            VARCHAR(255),
+    email         VARCHAR(255),
+    password_hash            VARCHAR(255),
+    phone            INT,
+    address            VARCHAR(255),
+    date_of_birth            DATE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS bank;
+CREATE TABLE bank (
+    bank_id              INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+    user_id              INTEGER,
+    account_number              INTEGER NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS accounts;
+CREATE TABLE accounts (
+    transaction_number              INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+    account_number              INTEGER, 
+    account_type            VARCHAR(255),
+    transaction_date            DATE,
+    location            VARCHAR(255),
+    deposit           INT NOT NULL,
+    withdrawal           INT NOT NULL,
+    balance           INT NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+INSERT INTO users ( name, email, password_hash, phone, address, date_of_birth ) VALUES ( 'Ben Smith', 'bensmith@email.com', 'password1', 0123456789, '25 Main st Melbourne VIC', '1990-07-10' );
+INSERT INTO users ( name, email, password_hash, phone, address, date_of_birth ) VALUES ( 'Tom Stiles', 'tomstiles@email.com', 'password1', 0123456789, '25 Main st Melbourne VIC', '1990-07-10' );
+INSERT INTO users ( name, email, password_hash, phone, address, date_of_birth ) VALUES ( 'Mary Collens', 'marycollens@email.com', 'password1', 0123456789, '25 Main st Melbourne VIC', '1990-07-10' );
+
+
+INSERT INTO bank ( user_id, account_number ) VALUES ( (SELECT user_id FROM users WHERE name = 'Ben Smith' ), 1001 );
+INSERT INTO bank ( user_id, account_number ) VALUES ( (SELECT user_id FROM users WHERE name = 'Tom Stiles' ), 2002 );
+INSERT INTO bank ( user_id, account_number ) VALUES ( (SELECT user_id FROM users WHERE name = 'Mary Collens' ), 3003 );
+
+INSERT INTO accounts ( account_number, account_type, transaction_date, location, deposit, withdrawal, balance ) VALUES ( (SELECT account_number FROM bank WHERE user_id = (SELECT user_id FROM users WHERE name = 'Ben Smith')), 'savings', '2023-09-13', 'ATM', 1000, 0, 1000 );
+INSERT INTO accounts ( account_number, account_type, transaction_date, location, deposit, withdrawal, balance ) VALUES ( (SELECT account_number FROM bank WHERE user_id = (SELECT user_id FROM users WHERE name = 'Ben Smith')), 'savings', '2023-09-13', 'ATM', 0, 50, 950 );
+INSERT INTO accounts ( account_number, account_type, transaction_date, location, deposit, withdrawal, balance ) VALUES ( (SELECT account_number FROM bank WHERE user_id = (SELECT user_id FROM users WHERE name = 'Ben Smith')), 'savings', '2023-09-13', 'ATM', 0, 300, 650 );
+INSERT INTO accounts ( account_number, account_type, transaction_date, location, deposit, withdrawal, balance ) VALUES ( (SELECT account_number FROM bank WHERE user_id = (SELECT user_id FROM users WHERE name = 'Tom Stiles')), 'savings', '2023-09-13', 'ATM', 1000, 0, 1000 );
+INSERT INTO accounts ( account_number, account_type, transaction_date, location, deposit, withdrawal, balance ) VALUES ( (SELECT account_number FROM bank WHERE user_id = (SELECT user_id FROM users WHERE name = 'Tom Stiles')), 'savings', '2023-09-13', 'ATM', 0, 500, 500 );
+INSERT INTO accounts ( account_number, account_type, transaction_date, location, deposit, withdrawal, balance ) VALUES ( (SELECT account_number FROM bank WHERE user_id = (SELECT user_id FROM users WHERE name = 'Tom Stiles')), 'savings', '2023-09-13', 'ATM', 1000, 0, 1500 );
+INSERT INTO accounts ( account_number, account_type, transaction_date, location, deposit, withdrawal, balance ) VALUES ( (SELECT account_number FROM bank WHERE user_id = (SELECT user_id FROM users WHERE name = 'Mary Collens')), 'savings', '2023-09-13', 'ATM', 3000, 0, 3000 );
+INSERT INTO accounts ( account_number, account_type, transaction_date, location, deposit, withdrawal, balance ) VALUES ( (SELECT account_number FROM bank WHERE user_id = (SELECT user_id FROM users WHERE name = 'Mary Collens')), 'savings', '2023-09-13', 'ATM', 0, 500, 2500 );
+INSERT INTO accounts ( account_number, account_type, transaction_date, location, deposit, withdrawal, balance ) VALUES ( (SELECT account_number FROM bank WHERE user_id = (SELECT user_id FROM users WHERE name = 'Mary Collens')), 'savings', '2023-09-13', 'ATM', 1000, 0, 3500 );
