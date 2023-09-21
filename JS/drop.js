@@ -34,23 +34,23 @@ const containers = {
 };
 
 buttonIds.forEach((buttonId) => {
-  const button = document.getElementById(buttonId);
+  const button = document.getElementById(buttonId); // Get the Id fo the clicked button
   button.addEventListener("click", () => {
-    // First, reset all buttons to their original state
+    // Reset all buttons to their original state
     buttonIds.forEach((id) => {
       const resetButton = document.getElementById(id);
-      resetButton.style.backgroundColor = "blue"; // Revert background color
-      resetButton.style.color = "white"; // Revert font color
+      resetButton.style.backgroundColor = "transparent"; // Reset background color to transparent
+      resetButton.style.border = "none"; // reset border to none
     });
 
-    // Set the "Banking" button to the desired style
+    // Set the "Banking" button to the desired style of #ff7a00 orande border and #ffd900 yellow background
     const bankingButton = document.getElementById("banking-button");
-    bankingButton.style.backgroundColor = "yellow";
-    bankingButton.style.color = "black";
+    bankingButton.style.backgroundColor = "#ffd900";
+    bankingButton.style.border = "solid 2px #ff7a00";
 
-    // Set the clicked button to the desired style
-    button.style.backgroundColor = "yellow";
-    button.style.color = "black";
+    // Set the clicked button to the desired style of #ff7a00 orande border and #ffd900 yellow background
+    button.style.backgroundColor = "#ffd900";
+    button.style.border = "solid 2px #ff7a00";
 
     // Hide all containers
     for (const containerKey in containers) {
@@ -59,10 +59,10 @@ buttonIds.forEach((buttonId) => {
       }
     }
 
-    // Display the corresponding container
+    // Display the corresponding container relating to the ID of the clicked button
     containers[buttonId.split("-")[0]].style.display = "flex";
 
-    // Handle the subButtons display logic
+    // Hide or display the subButtons according to the ID of the button clicked
     if (
       buttonId === "loans-button" ||
       buttonId === "insurance-button" ||
@@ -70,8 +70,9 @@ buttonIds.forEach((buttonId) => {
       buttonId === "contact-button"
     ) {
       subButtons.style.display = "flex";
-      bankingButton.style.backgroundColor = "blue";
-      bankingButton.style.color = "white";
+      bankingButton.style.backgroundColor = "white";
+      bankingButton.style.color = "black";
+      bankingButton.style.border = "none";
       personalButton.style.display = "none";
       businessButton.style.display = "none";
     } else if (

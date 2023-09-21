@@ -1,5 +1,5 @@
 <?php
-
+# Connect to Astrobank database
 $host = "localhost";
 $dbname = "astrobank";
 $username = "root";

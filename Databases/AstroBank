@@ -39,7 +39,7 @@ CREATE TABLE accounts (
 
 
 INSERT INTO users ( name, email, password_hash, phone, address, date_of_birth ) VALUES ( 'Ben Smith', 'bensmith@email.com', 'password1', 0123456789, '25 Main st Melbourne VIC', '1990-07-10' );
-INSERT INTO users ( name, email, password_hash, phone, address, date_of_birth ) VALUES ( 'Tom Stiles', 'tomstiles@email.com', 'password1', 0123456789, '25 Main st Melbourne VIC', '1990-07-10' );
+INSERT INTO users ( name, email, password_hash, phone, address, date_of_birth ) VALUES ( 'Tom Stiles', 'tomstyles@email.com', 'password1', 0123456789, '25 Main st Melbourne VIC', '1990-07-10' );
 INSERT INTO users ( name, email, password_hash, phone, address, date_of_birth ) VALUES ( 'Mary Collens', 'marycollens@email.com', 'password1', 0123456789, '25 Main st Melbourne VIC', '1990-07-10' );
 
 
