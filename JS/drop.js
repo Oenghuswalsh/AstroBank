@@ -86,3 +86,33 @@ buttonIds.forEach((buttonId) => {
     }
   });
 });
+document.addEventListener("DOMContentLoaded", function () {
+  // Get id of the button and the form
+  var searchButton = document.getElementById("searchButton");
+  var searchForm = document.getElementById("searchForm");
+  var menuIcon = document.getElementById("menuIcon");
+  var navMenu = document.getElementById("navMenu");
+
+  // Click event listener for search button
+  searchButton.addEventListener("click", function () {
+    // Toggle the "display" class on the form to control its visibility
+    if (
+      searchForm.style.display === "none" ||
+      searchForm.style.display === ""
+    ) {
+      searchForm.style.display = "block";
+    } else {
+      searchForm.style.display = "none";
+    }
+  });
+
+  // Click event listener for search button
+  menuIcon.addEventListener("click", function () {
+    // Toggle the "display" class on the form to control its visibility
+    if (navMenu.style.display === "none" || navMenu.style.display === "") {
+      navMenu.style.display = "flex";
+    } else {
+      navMenu.style.display = "none";
+    }
+  });
+});

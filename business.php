@@ -20,7 +20,7 @@ if (isset($_SESSION["user_id"])) {
 
 <head>
     <meta charset="UTF-8" />
-    <title>AstroBank</title>
+    <title>Businesses</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Load style sheet -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -157,23 +157,23 @@ if (isset($_SESSION["user_id"])) {
             <div class="dropdown">
                 <button class="button">Accounts</button>
                 <div class="dropdown-content"> <!-- links to business banking content -->
-                    <a href="./business.php">Business account</a>
-                    <a href="./business.php">Trust accounts</a>
+                    <a href="#">Business account</a>
+                    <a href="#">Trust accounts</a>
                 </div>
             </div>
             <div class="dropdown">
                 <button class="button">Credit Cards</button>
                 <div class="dropdown-content"> <!-- links to business banking content -->
-                    <a href="./business.php">Credit card products</a>
-                    <a href="./business.php">Lines of credit</a>
+                    <a href="#">Credit card products</a>
+                    <a href="#">Lines of credit</a>
                 </div>
             </div>
             <div class="dropdown">
                 <button class="button">Loans and finance</button>
                 <div class="dropdown-content"> <!-- links to business banking content -->
-                    <a href="./business.php">Business loans</a>
-                    <a href="./business.php">Commerical loans</a>
-                    <a href="./business.php">Overdraft accounts</a>
+                    <a href="#">Business loans</a>
+                    <a href="#">Commerical loans</a>
+                    <a href="#">Overdraft accounts</a>
                 </div>
             </div>
             <div class="dropdown mobileDisplays">
@@ -243,11 +243,11 @@ if (isset($_SESSION["user_id"])) {
             <div class="dropdown">
                 <button class="button">Business insurance</button>
                 <div class="dropdown-content"> <!-- links to insurance content -->
-                    <a href="./businessInsurance.php">Compulsory insurance</a>
-                    <a href="./businessInsurance.php">Workers compensation insurance</a>
-                    <a href="./businessInsurance.php">Public liability insurance</a>
-                    <a href="./businessInsurance.php">Asset insurance</a>
-                    <a href="./businessInsurance.php">Professional indemnity insurance</a>
+                    <a href="./insurance.php">Compulsory insurance</a>
+                    <a href="./insurance.php">Workers compensation insurance</a>
+                    <a href="./insurance.php">Public liability insurance</a>
+                    <a href="./insurance.php">Asset insurance</a>
+                    <a href="./insurance.php">Professional indemnity insurance</a>
                 </div>
             </div>
             <div class="dropdown">
@@ -315,80 +315,61 @@ if (isset($_SESSION["user_id"])) {
             </div>
         </div>
     </div>
-    <div class="banner">
-        <div class="bannerH2">
-            <h2 class="bannerheader">Reach for the stars with Astro Bank</h2>
-            <h3 class="bannerpara">Personal Loans 24 hour approval</h3>
+    <div class="newsCardSection">
+        <div class="bankingCardSection">
+            <div class="paraCards">
+                <h2>Astro Bank Business trading account</h2>
+                <h2>Supporting small businesses</h2>
+                <a href="./login.php" class="linkButton">Apply for a business account today</a>
+            </div>
+            <div class="newsCards">
+                <img class="cardImage" src="./Images/Small_business.jpg" alt="A person making contactless card payment ">
+            </div>
         </div>
-        <img class="bannerImage" src="./Images/Green_clouds.jpg" alt="">
+    </div>
+
+    <div class="bankingCardSection">
+        <div class="loanCards">
+            <h2>Business Accounts</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi alias quo repellendus nesciunt. Porro, soluta?</p>
+            <a href="./login.php" class="linkButton">Apply</a>
+        </div>
+
+        <div class="loanCards">
+            <h2>Trust Accounts</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi alias quo repellendus nesciunt. Porro, soluta?</p>
+            <a href="./login.php" class="linkButton">Apply</a>
+        </div>
     </div>
     <div class="bankingCardSection">
-        <div class="bankingCards">
-            <h2>Banking</h2>
-            <p>Everyday Accounts</p>
-            <p>Savings Accounts</p>
-            <p>Home Loans</p>
-            <p>Credit Cards</p>
-            <p>Business Accounts</p>
-            <a href="./login.php" class="linkButton">Log in to net banking</a>
+        <div class="loanCards">
+            <h2>Business Credit Cards</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi alias quo repellendus nesciunt. Porro, soluta?</p>
+            <a href="./login.php" class="linkButton">Apply</a>
         </div>
-        <div class="bankingCards">
-            <h2>Loans Products</h2>
-            <p>Interest Rates</p>
-            <p>Reypayment Calculator</p>
-            <a href="./homeloans.php" class="linkButton">Talk to us about a home loan today</a>
-        </div>
-        <div class="bankingCards">
-            <h2>Insurance</h2>
-            <p>Home and Property</p>
-            <p>Car insurance</p>
-            <p>Health insurance</p>
-            <p>Life insurance</p>
-            <p>Business insurance</p>
-            <a href="./insurance.php" class="linkButton">Make an insurance claim</a>
+
+        <div class="loanCards">
+            <h2>Lines of Credit</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi alias quo repellendus nesciunt. Porro, soluta?</p>
+            <a href="./login.php" class="linkButton">Apply</a>
         </div>
     </div>
-    <div class="newsCardSection">
-        <div class="newsH2">
-            <h2 class="news">News and Events</h2>
+
+    <div class="bankingCardSection">
+        <div class="bankingCards">
+            <h2>Business Loans</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi alias quo repellendus nesciunt. Porro, soluta?</p>
+            <a href="./login.php" class="linkButton">Apply</a>
         </div>
-        <div class="bankingCardSection">
-            <div class="newsCards">
-                <img src="./Images/Family_House.jpg" alt="An photo of a family home for sale in the suburs">
-            </div>
-            <div class="paraCards">
-                <h2>Advice and Blogs</h2>
-                <p c>How to make the most of the current Interest rates situation.
-                    Habits to help reduce your expenses and increase your savings.
-                    Upcoming events, online advice sessions with exports in property investment strategies, share market and investing.
-                    How much super do you have? and How much super will you need at retirement? </p>
-            </div>
-        </div>
-    </div>
-    <div class="toolCardSection">
-        <div class="toolCards">
-            <h2>Calculators</h2>
-            <p>Home Loans</p>
-            <p>Personal Loans</p>
-            <p>Savings</p>
-            <a href="./calculator.php" class="linkButton">Calculators</a>
-        </div>
-        <div class="toolCards">
-            <h2>Interest Rates</h2>
+        <div class="bankingCards">
+            <h2>Commercial Loans</h2>
             <p>Compare Rates</p>
-            <p>Mortgage</p>
-            <p>Savings</p>
-            <a href="./homeloans.php" class="linkButton">View rates</a>
+            <a href="./login.php" class="linkButton">Apply</a>
         </div>
-        <div class="toolCards">
-            <h2>Small Businesses</h2>
-            <p>Providing advice and assistance about loans and finances to small business </p>
-            <a href="./contact.php" class="linkButton">Contact Us</a>
-        </div>
-        <div class="toolCards">
-            <h2>Disaster Relief</h2>
-            <p>Supporting people struggling through natural disasters</p>
-            <a href="./about.php" class="linkButton">Find out more</a>
+        <div class="bankingCards">
+            <h2>Overdraft Accounts</h2>
+            <p>Does my business qualify for an overdraft </p>
+            <a href="./login.php" class="linkButton">Apply</a>
         </div>
     </div>
     <footer>

@@ -20,7 +20,7 @@ if (isset($_SESSION["user_id"])) {
 
 <head>
     <meta charset="UTF-8" />
-    <title>AstroBank</title>
+    <title>About Us</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Load style sheet -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -280,10 +280,10 @@ if (isset($_SESSION["user_id"])) {
             <div class="dropdown">
                 <button class="button">News and Media</button>
                 <div class="dropdown-content"> <!-- links to about us content -->
-                    <a href="./contact.php">Disaster relief support</a>
-                    <a href="./contact.php">Small business support</a>
-                    <a href="./contact.php">Environment and net zero efforts</a>
-                    <a href="./contact.php">Community projects</a>
+                    <a href="./about.php">Disaster relief support</a>
+                    <a href="./about.php">Small business support</a>
+                    <a href="./about.php">Environment and net zero efforts</a>
+                    <a href="./about.php">Community projects</a>
                 </div>
             </div>
         </div>
@@ -315,80 +315,39 @@ if (isset($_SESSION["user_id"])) {
             </div>
         </div>
     </div>
-    <div class="banner">
-        <div class="bannerH2">
-            <h2 class="bannerheader">Reach for the stars with Astro Bank</h2>
-            <h3 class="bannerpara">Personal Loans 24 hour approval</h3>
+    <div class="newsCardSection">
+        <div class="bankingCardSection">
+            <div class="paraCards">
+                <p class="cardsParas">Our trusted bank offers a range of services, from savings and loans to digital banking, tailored to meet your financial needs.</p>
+                <a href="./contact.php" class="linkButton">Contact us Today</a>
+            </div>
+            <div class="newsCards">
+                <img class="cardImage" src="./Images/Bank_people.jpg" alt="3 people having a meeting">
+            </div>
         </div>
-        <img class="bannerImage" src="./Images/Green_clouds.jpg" alt="">
     </div>
     <div class="bankingCardSection">
-        <div class="bankingCards">
-            <h2>Banking</h2>
-            <p>Everyday Accounts</p>
-            <p>Savings Accounts</p>
-            <p>Home Loans</p>
-            <p>Credit Cards</p>
-            <p>Business Accounts</p>
-            <a href="./login.php" class="linkButton">Log in to net banking</a>
+        <div class="loanCards">
+            <h2>Disaster relief support</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi alias quo repellendus nesciunt. Porro, soluta?</p>
+            <a href="./contact.php" class="linkButton">Inquire</a>
         </div>
-        <div class="bankingCards">
-            <h2>Loans Products</h2>
-            <p>Interest Rates</p>
-            <p>Reypayment Calculator</p>
-            <a href="./homeloans.php" class="linkButton">Talk to us about a home loan today</a>
-        </div>
-        <div class="bankingCards">
-            <h2>Insurance</h2>
-            <p>Home and Property</p>
-            <p>Car insurance</p>
-            <p>Health insurance</p>
-            <p>Life insurance</p>
-            <p>Business insurance</p>
-            <a href="./insurance.php" class="linkButton">Make an insurance claim</a>
+        <div class="loanCards">
+            <h2>Small business support</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi alias quo repellendus nesciunt. Porro, soluta?</p>
+            <a href="./contact.php" class="linkButton">Inquire</a>
         </div>
     </div>
-    <div class="newsCardSection">
-        <div class="newsH2">
-            <h2 class="news">News and Events</h2>
+    <div class="bankingCardSection">
+        <div class="loanCards">
+            <h2>Community projects</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi alias quo repellendus nesciunt. Porro, soluta?</p>
+            <a href="./contact.php" class="linkButton">Inquire</a>
         </div>
-        <div class="bankingCardSection">
-            <div class="newsCards">
-                <img src="./Images/Family_House.jpg" alt="An photo of a family home for sale in the suburs">
-            </div>
-            <div class="paraCards">
-                <h2>Advice and Blogs</h2>
-                <p c>How to make the most of the current Interest rates situation.
-                    Habits to help reduce your expenses and increase your savings.
-                    Upcoming events, online advice sessions with exports in property investment strategies, share market and investing.
-                    How much super do you have? and How much super will you need at retirement? </p>
-            </div>
-        </div>
-    </div>
-    <div class="toolCardSection">
-        <div class="toolCards">
-            <h2>Calculators</h2>
-            <p>Home Loans</p>
-            <p>Personal Loans</p>
-            <p>Savings</p>
-            <a href="./calculator.php" class="linkButton">Calculators</a>
-        </div>
-        <div class="toolCards">
-            <h2>Interest Rates</h2>
-            <p>Compare Rates</p>
-            <p>Mortgage</p>
-            <p>Savings</p>
-            <a href="./homeloans.php" class="linkButton">View rates</a>
-        </div>
-        <div class="toolCards">
-            <h2>Small Businesses</h2>
-            <p>Providing advice and assistance about loans and finances to small business </p>
-            <a href="./contact.php" class="linkButton">Contact Us</a>
-        </div>
-        <div class="toolCards">
-            <h2>Disaster Relief</h2>
-            <p>Supporting people struggling through natural disasters</p>
-            <a href="./about.php" class="linkButton">Find out more</a>
+        <div class="loanCards">
+            <h2>Environment and net zero efforts</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi alias quo repellendus nesciunt. Porro, soluta?</p>
+            <a href="./contact.php" class="linkButton">Inquire</a>
         </div>
     </div>
     <footer>

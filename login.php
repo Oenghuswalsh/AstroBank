@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             $_SESSION["user_id"] = $user["user_id"];
 
-            header("Location: index.php");
+            header("Location: myastrobank.php");
             exit;
         }
     }
@@ -53,7 +53,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body>
     <header>
         <div class="siteName">
-            <h1>AstroBank</h1>
+            <a href="./index.php">
+                <h1>AstroBank</h1>
+            </a>
         </div>
         <nav>
             <div class="button-container"> <!-- Navigation buttons in header -->
@@ -80,15 +82,57 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <em>Invalid login</em>
             <?php endif; ?>
             <form method="post">
-                <label for="email">Email</label><br>
-                <input type="email" name="email" id="email" value="<?= htmlspecialchars($_POST["email"] ?? "") ?>"><br>
-                <label for="password">Password</label><br>
-                <input type="password" name="password" id="password">
-                <button class="loginButton" type="submit">Log in</button>
+                <div>
+                    <label for="email">Email</label><br>
+                    <input type="email" name="email" id="email" size="15" value="<?= htmlspecialchars($_POST["email"] ?? "") ?>"><br>
+                    <label for="password">Password</label><br>
+                    <input type="password" name="password" id="password" size="15">
+                </div>
+                <br>
+                <button class="button loginButton" type="submit">Log in</button>
             </form>
         </div>
     </section>
-
+    <footer class="footer">
+        <h4>AstroBank</h4>
+        <div class="footerNav">
+            <div>
+                <h5>Internet Banking</h5>
+                <ul>
+                    <li><a href="./login.php">Log in to internet banking</a></li>
+                    <li><a href="./homeloans.php">Home Loans</a></li>
+                    <li><a href="./personal.php">Personal Loans</a></li>
+                    <li><a href="./creditcards.php">Credit Cards</a></li>
+                    <li><a href="./insurance.php">Insurance</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5>Support</h5>
+                <ul>
+                    <li><a href="./contact.php">Contact Astro Bank</a></li>
+                    <li><a href="./insurance.php">Make a claim</a></li>
+                    <li><a href="./contact.php">Find a branch or ATM</a></li>
+                    <li><a href="./contact.php">Complaints</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5>Media and Links</h5>
+                <ul>
+                    <li><a href="./about.php">About Astro Bank</a></li>
+                    <li><a href="./about.php">Astro Bank App</a></li>
+                    <li><a href="./about.php">Media</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Oenghus Walsh</p>
+            <Div class="socialMedia">
+                <a href="#"><img class="mediaIcon" src="./Images/facebook.png" alt=""></a>
+                <a href="#"><img class="mediaIcon" src="./Images/youtube-32.png" alt=""></a>
+                <a href="#"><img class="mediaIcon" src="./Images/twitter.png" alt=""></a>
+            </Div>
+        </div>
+    </footer>
 </body>
 
 </html>

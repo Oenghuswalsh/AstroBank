@@ -20,7 +20,7 @@ if (isset($_SESSION["user_id"])) {
 
 <head>
     <meta charset="UTF-8" />
-    <title>AstroBank</title>
+    <title>Insurance</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Load style sheet -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -211,33 +211,33 @@ if (isset($_SESSION["user_id"])) {
             <div class="dropdown">
                 <button class="button">Home and Property</button>
                 <div class="dropdown-content"> <!-- links to insurance content -->
-                    <a href="./insurance.php">Home and contents</a>
-                    <a href="./insurance.php">Home building only</a>
-                    <a href="./insurance.php">Contents only</a>
-                    <a href="./insurance.php">Landlord insurance</a>
+                    <a href="#">Home and contents</a>
+                    <a href="#">Home building only</a>
+                    <a href="#">Contents only</a>
+                    <a href="#">Landlord insurance</a>
                 </div>
             </div>
             <div class="dropdown">
                 <button class="button">Car</button>
                 <div class="dropdown-content"> <!-- links to insurance content -->
-                    <a href="./insurance.php">Comprehensive</a>
-                    <a href="./insurance.php">Third party</a>
-                    <a href="./insurance.php">CTP insurance</a>
+                    <a href="#">Comprehensive</a>
+                    <a href="#">Third party</a>
+                    <a href="#">CTP insurance</a>
                 </div>
             </div>
             <div class="dropdown">
                 <button class="button">Life and Income</button>
                 <div class="dropdown-content"> <!-- links to insurance content -->
-                    <a href="./insurance.php">Life insurance</a>
-                    <a href="./insurance.php">Income protection insurance</a>
+                    <a href="#">Life insurance</a>
+                    <a href="#">Income protection insurance</a>
                 </div>
             </div>
             <div class="dropdown">
                 <button class="button">Health insurance</button>
                 <div class="dropdown-content"> <!-- links to insurance content -->
-                    <a href="./insurance.php">Health insurance</a>
-                    <a href="./insurance.php">Hospital cover</a>
-                    <a href="./insurance.php">Extra cover</a>
+                    <a href="#">Health insurance</a>
+                    <a href="#">Hospital cover</a>
+                    <a href="#">Extra cover</a>
                 </div>
             </div>
             <div class="dropdown">
@@ -253,8 +253,8 @@ if (isset($_SESSION["user_id"])) {
             <div class="dropdown">
                 <button class="button">Claims</button>
                 <div class="dropdown-content"> <!-- links to insurance content -->
-                    <a href="./insurance.php">Make a claim</a>
-                    <a href="./insurance.php">Track a claim</a>
+                    <a href="#">Make a claim</a>
+                    <a href="#">Track a claim</a>
                 </div>
             </div>
         </div>
@@ -315,80 +315,62 @@ if (isset($_SESSION["user_id"])) {
             </div>
         </div>
     </div>
-    <div class="banner">
-        <div class="bannerH2">
-            <h2 class="bannerheader">Reach for the stars with Astro Bank</h2>
-            <h3 class="bannerpara">Personal Loans 24 hour approval</h3>
+    <div class="newsCardSection">
+        <div class="bankingCardSection">
+            <div class="paraCards">
+                <p class="cardsParas">Our comprehensive insurance solutions provide security, peace of mind, and financial protection against unexpected events, ensuring your assets are safeguarded.</p>
+                <a href="./login.php" class="linkButton">Get a Quote</a>
+            </div>
+            <div class="newsCards">
+                <img class="cardImage" src="./Images/Family_House.jpg" alt="A new house for sale">
+            </div>
         </div>
-        <img class="bannerImage" src="./Images/Green_clouds.jpg" alt="">
     </div>
     <div class="bankingCardSection">
-        <div class="bankingCards">
-            <h2>Banking</h2>
-            <p>Everyday Accounts</p>
-            <p>Savings Accounts</p>
-            <p>Home Loans</p>
-            <p>Credit Cards</p>
-            <p>Business Accounts</p>
-            <a href="./login.php" class="linkButton">Log in to net banking</a>
+        <div class="loanCards">
+            <h2>Home and Contents insurance</h2>
+            <p>Home and contents</p>
+            <p>Home building only</p>
+            <p>Contents only</p>
+            <p>Landlord</p>
+            <a href="./login.php" class="linkButton">Apply</a>
         </div>
-        <div class="bankingCards">
-            <h2>Loans Products</h2>
-            <p>Interest Rates</p>
-            <p>Reypayment Calculator</p>
-            <a href="./homeloans.php" class="linkButton">Talk to us about a home loan today</a>
-        </div>
-        <div class="bankingCards">
-            <h2>Insurance</h2>
-            <p>Home and Property</p>
-            <p>Car insurance</p>
-            <p>Health insurance</p>
+        <div class="loanCards">
+            <h2>Personal Loans</h2>
             <p>Life insurance</p>
-            <p>Business insurance</p>
-            <a href="./insurance.php" class="linkButton">Make an insurance claim</a>
+            <p>Income protection insurance</p>
+            <p>Health insurance</p>
+            <p>Hospital cover</p>
+            <p>Extras cover</p>
+            <a href="./login.php" class="linkButton">Apply</a>
+        </div>
+    </div>
+    <div class="bankingCardSection">
+        <div class="loanCards">
+            <h2>Car insurance</h2>
+            <p>Comprehensive</p>
+            <p>Third party</p>
+            <p>CTP insurance</p>
+            <a href="./login.php" class="linkButton">Apply</a>
+        </div>
+
+        <div class="loanCards">
+            <h2>Make a Claim</h2>
+            <p>Make a claim</p>
+            <p>Track a claim</p>
+            <a href="./contact.php" class="linkButton">Claims</a>
         </div>
     </div>
     <div class="newsCardSection">
-        <div class="newsH2">
-            <h2 class="news">News and Events</h2>
-        </div>
         <div class="bankingCardSection">
             <div class="newsCards">
-                <img src="./Images/Family_House.jpg" alt="An photo of a family home for sale in the suburs">
+                <img class="cardImage" src="./Images/Flooded_House.jpg" alt="A flooded suburb">
             </div>
             <div class="paraCards">
-                <h2>Advice and Blogs</h2>
-                <p c>How to make the most of the current Interest rates situation.
-                    Habits to help reduce your expenses and increase your savings.
-                    Upcoming events, online advice sessions with exports in property investment strategies, share market and investing.
-                    How much super do you have? and How much super will you need at retirement? </p>
+                <h2>Home Insurance</h2>
+                <p class="cardsParas">Get Storm and Flood Cover automatically included with all AstroBank Home Insurance products.</p>
+                <a href="./contact.php" class="linkButton">Contact a insurance specialist</a>
             </div>
-        </div>
-    </div>
-    <div class="toolCardSection">
-        <div class="toolCards">
-            <h2>Calculators</h2>
-            <p>Home Loans</p>
-            <p>Personal Loans</p>
-            <p>Savings</p>
-            <a href="./calculator.php" class="linkButton">Calculators</a>
-        </div>
-        <div class="toolCards">
-            <h2>Interest Rates</h2>
-            <p>Compare Rates</p>
-            <p>Mortgage</p>
-            <p>Savings</p>
-            <a href="./homeloans.php" class="linkButton">View rates</a>
-        </div>
-        <div class="toolCards">
-            <h2>Small Businesses</h2>
-            <p>Providing advice and assistance about loans and finances to small business </p>
-            <a href="./contact.php" class="linkButton">Contact Us</a>
-        </div>
-        <div class="toolCards">
-            <h2>Disaster Relief</h2>
-            <p>Supporting people struggling through natural disasters</p>
-            <a href="./about.php" class="linkButton">Find out more</a>
         </div>
     </div>
     <footer>
@@ -401,14 +383,14 @@ if (isset($_SESSION["user_id"])) {
                     <li><a href="./homeloans.php">Home Loans</a></li>
                     <li><a href="./personal.php">Personal Loans</a></li>
                     <li><a href="./creditcards.php">Credit Cards</a></li>
-                    <li><a href="./insurance.php">Insurance</a></li>
+                    <li><a href="#">Insurance</a></li>
                 </ul>
             </div>
             <div>
                 <h5>Support</h5>
                 <ul>
                     <li><a href="./contact.php">Contact Astro Bank</a></li>
-                    <li><a href="./insurance.php">Make a claim</a></li>
+                    <li><a href="#">Make a claim</a></li>
                     <li><a href="./contact.php">Find a branch or ATM</a></li>
                     <li><a href="./contact.php">Complaints</a></li>
                 </ul>

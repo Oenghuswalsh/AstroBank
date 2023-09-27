@@ -66,7 +66,7 @@ if ($stmt->execute()) {
     $stmt_bank->bind_param("is", $user_id, $account_number);
 
     if ($stmt_bank->execute()) {
-        header("Location: index.php");
+        header("Location: myastrobank.php");
         exit;
     } else {
         die("Error inserting data into 'bank' table: " . $stmt_bank->error);

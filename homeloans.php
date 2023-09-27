@@ -20,7 +20,7 @@ if (isset($_SESSION["user_id"])) {
 
 <head>
     <meta charset="UTF-8" />
-    <title>AstroBank</title>
+    <title>Home Loans</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Load style sheet -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -126,8 +126,8 @@ if (isset($_SESSION["user_id"])) {
             <div class="dropdown">
                 <button class="button">Home loans</button>
                 <div class="dropdown-content"> <!-- links to personal banking content -->
-                    <a href="./homeloans.php">Loan products</a>
-                    <a href="./homeloans.php">Interest rates</a>
+                    <a href="#">Loan products</a>
+                    <a href="#">Interest rates</a>
                     <a href="./calculator.php">Calculators</a>
                 </div>
             </div>
@@ -243,11 +243,11 @@ if (isset($_SESSION["user_id"])) {
             <div class="dropdown">
                 <button class="button">Business insurance</button>
                 <div class="dropdown-content"> <!-- links to insurance content -->
-                    <a href="./businessInsurance.php">Compulsory insurance</a>
-                    <a href="./businessInsurance.php">Workers compensation insurance</a>
-                    <a href="./businessInsurance.php">Public liability insurance</a>
-                    <a href="./businessInsurance.php">Asset insurance</a>
-                    <a href="./businessInsurance.php">Professional indemnity insurance</a>
+                    <a href="./insurance.php">Compulsory insurance</a>
+                    <a href="./insurance.php">Workers compensation insurance</a>
+                    <a href="./insurance.php">Public liability insurance</a>
+                    <a href="./insurance.php">Asset insurance</a>
+                    <a href="./insurance.php">Professional indemnity insurance</a>
                 </div>
             </div>
             <div class="dropdown">
@@ -315,82 +315,67 @@ if (isset($_SESSION["user_id"])) {
             </div>
         </div>
     </div>
-    <div class="banner">
-        <div class="bannerH2">
-            <h2 class="bannerheader">Reach for the stars with Astro Bank</h2>
-            <h3 class="bannerpara">Personal Loans 24 hour approval</h3>
+    <div class="newsCardSection">
+        <div class="bankingCardSection">
+            <div class="paraCards">
+                <p class="cardsParas">Choose a bank you can trust to put your family first when it comes to mortgage repayments</p>
+                <a href="./contact.php" class="linkButton">Contact a mortgage specialist</a>
+            </div>
+            <div class="newsCards">
+                <img src="./Images/Family_House.jpg" alt="A house with green grass in front">
+            </div>
         </div>
-        <img class="bannerImage" src="./Images/Green_clouds.jpg" alt="">
     </div>
     <div class="bankingCardSection">
         <div class="bankingCards">
-            <h2>Banking</h2>
-            <p>Everyday Accounts</p>
-            <p>Savings Accounts</p>
-            <p>Home Loans</p>
-            <p>Credit Cards</p>
-            <p>Business Accounts</p>
-            <a href="./login.php" class="linkButton">Log in to net banking</a>
+            <h2>Home Loans</h2>
+            <p>Fixed Rate Loans</p>
+            <p>Variable Rate Loans</p>
+            <p>Interest only Loans</p>
+            <a href="./login.php" class="linkButton">Apply</a>
         </div>
         <div class="bankingCards">
-            <h2>Loans Products</h2>
-            <p>Interest Rates</p>
-            <p>Reypayment Calculator</p>
-            <a href="./homeloans.php" class="linkButton">Talk to us about a home loan today</a>
+            <h2>Interest Rates</h2>
+            <p>Compare Rates</p>
+            <p>fixed Rates</p>
+            <p>Variable Rates</p>
+            <a href="#" class="linkButton">View Rates</a>
         </div>
         <div class="bankingCards">
-            <h2>Insurance</h2>
-            <p>Home and Property</p>
-            <p>Car insurance</p>
-            <p>Health insurance</p>
-            <p>Life insurance</p>
-            <p>Business insurance</p>
-            <a href="./insurance.php" class="linkButton">Make an insurance claim</a>
+            <h2>Calculators</h2>
+            <p>Calculate how much you can borrow today</p>
+            <a href="./calculator.php" class="linkButton">Calculators</a>
+        </div>
+    </div>
+    <div class="bankingCardSection">
+        <div class="loanCards">
+            <h2>Fixed Rate Loans</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi alias quo repellendus nesciunt. Porro, soluta?</p>
+            <a href="./login.php" class="linkButton">Apply</a>
+        </div>
+
+        <div class="loanCards">
+            <h2>Variable Rate Loans</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi alias quo repellendus nesciunt. Porro, soluta?</p>
+            <a href="./login.php" class="linkButton">Apply</a>
         </div>
     </div>
     <div class="newsCardSection">
-        <div class="newsH2">
-            <h2 class="news">News and Events</h2>
-        </div>
         <div class="bankingCardSection">
             <div class="newsCards">
-                <img src="./Images/Family_House.jpg" alt="An photo of a family home for sale in the suburs">
+                <img class="cardImage" src="./Images/Paying_Card.jpg" alt="A hand taking a bank card from a wallet">
             </div>
             <div class="paraCards">
-                <h2>Advice and Blogs</h2>
-                <p c>How to make the most of the current Interest rates situation.
-                    Habits to help reduce your expenses and increase your savings.
-                    Upcoming events, online advice sessions with exports in property investment strategies, share market and investing.
-                    How much super do you have? and How much super will you need at retirement? </p>
+                <h2>Refinancing?</h2>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius eos adipisci
+                    voluptatum modi animi fugiat, qui ipsa voluptatibus ducimus nisi totam ratione
+                    ea quis laboriosam mollitia numquam itaque placeat delectus sed expedita! Ipsa
+                    delectus ut, aspernatur molestias autem totam ducimus. Obcaecati magnam, fuga </p>
+                <a href="./contact.php" class="linkButton">Contact a mortgage specialist</a>
             </div>
         </div>
     </div>
-    <div class="toolCardSection">
-        <div class="toolCards">
-            <h2>Calculators</h2>
-            <p>Home Loans</p>
-            <p>Personal Loans</p>
-            <p>Savings</p>
-            <a href="./calculator.php" class="linkButton">Calculators</a>
-        </div>
-        <div class="toolCards">
-            <h2>Interest Rates</h2>
-            <p>Compare Rates</p>
-            <p>Mortgage</p>
-            <p>Savings</p>
-            <a href="./homeloans.php" class="linkButton">View rates</a>
-        </div>
-        <div class="toolCards">
-            <h2>Small Businesses</h2>
-            <p>Providing advice and assistance about loans and finances to small business </p>
-            <a href="./contact.php" class="linkButton">Contact Us</a>
-        </div>
-        <div class="toolCards">
-            <h2>Disaster Relief</h2>
-            <p>Supporting people struggling through natural disasters</p>
-            <a href="./about.php" class="linkButton">Find out more</a>
-        </div>
-    </div>
+
     <footer>
         <h4>AstroBank</h4>
         <div class="footerNav">

@@ -24,7 +24,9 @@
   <body>
     <header>
       <div class="siteName">
-        <h1>AstroBank</h1>
+        <a href="./index.php">
+          <h1>AstroBank</h1>
+        </a>
       </div>
       <nav>
         <div class="button-container">
@@ -53,15 +55,15 @@
         <form action="process_signup.php" method="post" id="signup" novalidate>
           <div>
             <label for="name">Name</label><br />
-            <input type="text" id="name" name="name" />
+            <input type="text" id="name" name="name" size="15" />
           </div>
           <div>
             <label for="email">email</label><br />
-            <input type="email" id="email" name="email" />
+            <input type="email" id="email" name="email" size="15" />
           </div>
           <div>
             <label for="password">Password</label><br />
-            <input type="password" id="password" name="password" />
+            <input type="password" id="password" name="password" size="15" />
           </div>
           <div>
             <label for="password_confirmation">Repeat password</label><br />
@@ -69,15 +71,16 @@
               type="password"
               id="password_confirmation"
               name="password_confirmation"
+              size="15"
             />
           </div>
           <div>
             <label for="phone">Phone</label><br />
-            <input type="number" id="phone" name="phone" />
+            <input class="phone" type="number" id="phone" name="phone" />
           </div>
           <div>
             <label for="address">Address</label><br />
-            <input type="text" id="address" name="address" />
+            <input type="text" id="address" name="address" size="15" />
           </div>
           <div>
             <label for="date_of_birth">Date of Birth</label><br />
@@ -88,5 +91,51 @@
         </form>
       </div>
     </div>
+    <footer class="footer">
+      <h4>AstroBank</h4>
+      <div class="footerNav">
+        <div>
+          <h5>Internet Banking</h5>
+          <ul>
+            <li><a href="./login.php">Log in to internet banking</a></li>
+            <li><a href="./homeloans.php">Home Loans</a></li>
+            <li><a href="./personal.php">Personal Loans</a></li>
+            <li><a href="./creditcards.php">Credit Cards</a></li>
+            <li><a href="./insurance.php">Insurance</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Support</h5>
+          <ul>
+            <li><a href="./contact.php">Contact Astro Bank</a></li>
+            <li><a href="./insurance.php">Make a claim</a></li>
+            <li><a href="./contact.php">Find a branch or ATM</a></li>
+            <li><a href="./contact.php">Complaints</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Media and Links</h5>
+          <ul>
+            <li><a href="./about.php">About Astro Bank</a></li>
+            <li><a href="./about.php">Astro Bank App</a></li>
+            <li><a href="./about.php">Media</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2023 Oenghus Walsh</p>
+        <div class="socialMedia">
+          <a title="Facebook" href="#"
+            ><img class="mediaIcon" src="./Images/facebook.png" alt=""
+          /></a>
+          <a title="YouTube" href="#"
+            ><img class="mediaIcon" src="./Images/youtube-32.png" alt=""
+          /></a>
+          <a title="Twitter" href="#"
+            ><img class="mediaIcon" src="./Images/twitter.png" alt=""
+          /></a>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
