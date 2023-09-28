@@ -116,3 +116,46 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("loanCalculatorForm");
+  const repaymentAmount = document.getElementById("repaymentAmount");
+  const totalCost = document.getElementById("totalCost");
+
+  // Add a reference to the reset button
+  const resetButton = document.querySelector('input[type="reset"]');
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const loanType = form.loanType.value;
+    const loanAmount = parseFloat(form.loanAmount.value);
+    const deposit = parseFloat(form.deposit.value);
+    const term = parseFloat(form.term.value);
+    const interestRate = parseFloat(form.interestRate.value) / 100;
+    const repaymentFrequency = form.repaymentFrequency.value;
+
+    // Calculate the repayment amount and total cost here
+    // You can use different formulas based on the loan type
+
+    // Example formula for monthly payments:
+    const monthlyInterestRate = interestRate / 12;
+    const numberOfPayments = term;
+    const monthlyRepayment =
+      ((loanAmount - deposit) *
+        (monthlyInterestRate *
+          Math.pow(1 + monthlyInterestRate, numberOfPayments))) /
+      (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
+
+    const totalCostOfLoan = monthlyRepayment * numberOfPayments;
+
+    repaymentAmount.textContent = monthlyRepayment.toFixed(2);
+    totalCost.textContent = totalCostOfLoan.toFixed(2);
+  });
+  // Add an event listener to the reset button to clear the form fields
+  resetButton.addEventListener("click", function () {
+    form.reset();
+    // Clear the result fields as well
+    repaymentAmount.textContent = "0.00";
+    totalCost.textContent = "0.00";
+  });
+});

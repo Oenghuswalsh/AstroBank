@@ -442,6 +442,24 @@ Body {
   .profile_section input {
     font-size: 1.25em;
   }
+  .calculator {
+    display: block;
+    justify-content: center;
+    margin: 8px auto;
+    padding: 1em 1em 3em 3em;
+    background-color: #56af2c;
+    width: 400px;
+    border: solid 4px #ffd900;
+    outline: solid 4px #14ff00;
+    font-size: 1.25em;
+  }
+  .calButton {
+    margin-top: 0.5em;
+  }
+  .calculator input,
+  select {
+    font-size: 1.25em;
+  }
   .profile_section .signUpButton {
     display: flex;
     background-color: #ff7a00;

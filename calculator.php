@@ -111,16 +111,16 @@ if (isset($_SESSION["user_id"])) {
             <div class="dropdown">
                 <button class="button">Accounts</button>
                 <div class="dropdown-content"> <!-- links to personal banking content -->
-                    <a href="#">Everyday account</a>
-                    <a href="#">Savings</a>
-                    <a href="#">Term deposit account</a>
+                    <a href="./accounts.php">Everyday account</a>
+                    <a href="./accounts.php">Savings</a>
+                    <a href="./accounts.php">Term deposit account</a>
                 </div>
             </div>
             <div class="dropdown">
                 <button class="button">Personal Loans</button>
                 <div class="dropdown-content"> <!-- links to personal banking content -->
-                    <a href="#">Personal loans</a>
-                    <a href="#">Car loans</a>
+                    <a href="./accounts.php">Personal loans</a>
+                    <a href="./accounts.php">Car loans</a>
                 </div>
             </div>
             <div class="dropdown">
@@ -315,10 +315,49 @@ if (isset($_SESSION["user_id"])) {
             </div>
         </div>
     </div>
+    <div class="calculator">
+        <h2>Loan Repayment Calculator</h2>
+        <form id="loanCalculatorForm">
+            <label for="loanType">Type of Loan:</label><br>
+            <select id="loanType" name="loanType">
+                <option value="personal" active hidden>Type of Loan</option>
+                <option value="personal">Personal Loan</option>
+                <option value="car">Car Loan</option>
+                <option value="mortgage">Mortgage</option>
+            </select><br>
+
+            <label for="loanAmount">Loan Amount:</label><br>
+            <input type="number" id="loanAmount" name="loanAmount" required><br>
+
+            <label for="deposit">Deposit:</label><br>
+            <input type="number" id="deposit" name="deposit" required><br>
+
+            <label for="term">Term (in months):</label><br>
+            <input type="number" id="term" name="term" required><br>
+
+            <label for="interestRate">Interest Rate (%):</label><br>
+            <input type="number" id="interestRate" name="interestRate" step="0.01" required><br>
+
+            <label for="repaymentFrequency">Repayment Frequency:</label><br>
+            <select id="repaymentFrequency" name="repaymentFrequency">
+                <option value="monthly" active hidden>Frequency</option>
+                <option value="monthly">Monthly</option>
+                <option value="weekly">Weekly</option>
+            </select><br>
+
+            <input class="calButton" type="submit" value="Calculate">
+            <input class="calButton" type="reset" value="Reset">
+        </form>
+
+        <div id="results">
+            <p>Repayment Amount: <span id="repaymentAmount">0.00</span></p>
+            <p>Total Cost of Loan: <span id="totalCost">0.00</span></p>
+        </div>
 
 
 
-    <footer class="footer">
+    </div>
+    <footer>
         <h4>AstroBank</h4>
         <div class="footerNav">
             <div>
