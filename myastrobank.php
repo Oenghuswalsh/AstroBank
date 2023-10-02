@@ -109,6 +109,15 @@ if (isset($_SESSION["user_id"])) {
                 </div>
             </div>
             <div class="dropdown">
+                <button class="button">My Accounts</button>
+                <div class="dropdown-content"> <!-- links to personal banking content -->
+                    <a href="./myaccounts.php">Everyday account</a>
+                    <a href="./myaccounts.php">Apply for a Savings account</a>
+                    <a href="./myaccounts.php">Apply for a Loan</a>
+                    <a href="./myaccounts.php">Apply for a Credit Card</a>
+                </div>
+            </div>
+            <div class="dropdown">
                 <button class="button">Accounts</button>
                 <div class="dropdown-content"> <!-- links to personal banking content -->
                     <a href="./accounts.php">Everyday account</a>

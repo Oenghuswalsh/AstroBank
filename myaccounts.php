@@ -12,6 +12,39 @@ if (isset($_SESSION["user_id"])) {
     $result = $mysqli->query($sql);
 
     $user = $result->fetch_assoc();
+
+    $sql = "SELECT * FROM accounts";
+
+    $result1 = $mysqli->query($sql);
+
+    $accounts = $result1->fetch_assoc();
+
+    $sql = "SELECT balance
+        FROM accounts
+        ORDER BY transaction_date DESC
+        LIMIT 1";
+
+    $result2 = $mysqli->query($sql);
+
+    if ($result2) {
+        $latestBalanceRow = $result2->fetch_assoc();
+        $latestBalance = $latestBalanceRow["balance"];
+    } else {
+        // error messsage if no balance figure is available
+        $latestBalance = "N/A";
+    }
+
+    $sql = "SELECT transaction_number, transaction_date, location, deposit, withdrawal, balance FROM accounts ORDER BY transaction_date DESC";
+
+    $result3 = $mysqli->query($sql);
+
+    if ($result3) {
+        // Fetch all rows into an array
+        $statement = $result3->fetch_all(MYSQLI_ASSOC);
+    } else {
+        // Error message if no statment data is available
+        $statement = array("no data available");
+    }
 }
 
 ?>
@@ -20,7 +53,7 @@ if (isset($_SESSION["user_id"])) {
 
 <head>
     <meta charset="UTF-8" />
-    <title>Calculators</title>
+    <title>My accounts</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Load style sheet -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -106,6 +139,15 @@ if (isset($_SESSION["user_id"])) {
             <div class="dropdown mobileDisplays">
                 <div class="button signUpButton">
                     <a href="signup.html" class="link">Sign up</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="button">My Accounts</button>
+                <div class="dropdown-content"> <!-- links to personal banking content -->
+                    <a href="./accounts.php">Everyday account</a>
+                    <a href="./accounts.php">Apply for a Savings account</a>
+                    <a href="./accounts.php">Apply for a Loan</a>
+                    <a href="./accounts.php">Apply for a Credit Card</a>
                 </div>
             </div>
             <div class="dropdown">
@@ -243,11 +285,11 @@ if (isset($_SESSION["user_id"])) {
             <div class="dropdown">
                 <button class="button">Business insurance</button>
                 <div class="dropdown-content"> <!-- links to insurance content -->
-                    <a href="./insurance.php">Compulsory insurance</a>
-                    <a href="./insurance.php">Workers compensation insurance</a>
-                    <a href="./insurance.php">Public liability insurance</a>
-                    <a href="./insurance.php">Asset insurance</a>
-                    <a href="./insurance.php">Professional indemnity insurance</a>
+                    <a href="./businessInsurance.php">Compulsory insurance</a>
+                    <a href="./businessInsurance.php">Workers compensation insurance</a>
+                    <a href="./businessInsurance.php">Public liability insurance</a>
+                    <a href="./businessInsurance.php">Asset insurance</a>
+                    <a href="./businessInsurance.php">Professional indemnity insurance</a>
                 </div>
             </div>
             <div class="dropdown">
@@ -315,52 +357,107 @@ if (isset($_SESSION["user_id"])) {
             </div>
         </div>
     </div>
-    <div class="calculator">
-        <h2>Loan Repayment Calculator</h2>
-        <form id="loanCalculatorForm">
-            <label for="loanType">Type of Loan:</label><br>
-            <select id="loanType" name="loanType">
-                <option value="personal" active hidden>Type of Loan</option>
-                <option value="personal">Personal Loan</option>
-                <option value="car">Car Loan</option>
-                <option value="mortgage">Mortgage</option>
-            </select><br>
-
-            <label for="loanAmount">Loan Amount:</label><br>
-            <input type="number" id="loanAmount" name="loanAmount" required><br>
-
-            <label for="deposit">Deposit:</label><br>
-            <input type="number" id="deposit" name="deposit" required><br>
-
-            <label for="term">Term (in months):</label><br>
-            <input type="number" id="term" name="term" required><br>
-
-            <label for="interestRate">Interest Rate (%):</label><br>
-            <input type="number" id="interestRate" name="interestRate" step="0.01" required><br>
-
-            <label for="repaymentFrequency">Repayment Frequency:</label><br>
-            <select id="repaymentFrequency" name="repaymentFrequency">
-                <option value="monthly" active hidden>Frequency</option>
-                <option value="monthly">Monthly</option>
-                <option value="weekly">Weekly</option>
-            </select><br>
-
-            <input class="calButton" type="submit" value="Calculate">
-            <input class="calButton" type="reset" value="Reset">
-        </form>
-
-        <div id="results">
-            <p>Repayment Amount: <span id="repaymentAmount">0.00</span></p>
-            <p>Total Cost of Loan: <span id="totalCost">0.00</span></p>
-        </div>
+    <!-- Account holders personal details -->
+    <div class="accountDetails">
+        <h3>Account Details:</h3>
         <?php if (isset($user)) : ?>
-            <a href="./contact.php" class="linkButton">Apply for this loan</a>
-        <?php else : ?>
-            <a href="./login.php" class="linkButton">Apply for this loan</a>
-        <?php endif; ?>
+            <?php $output = ''; ?>
+            <?php foreach ($user as $key => $value) : ?>
+                <?php if ($key !== 'password_hash') : ?>
+                    <span class="dataTypes"><?= htmlspecialchars($key) ?>:</span><span class="userData"><?= htmlspecialchars($value) ?></span>
+                <?php endif; ?>
+            <?php endforeach; ?>
 
+            <?= trim($output) ?>
+        <?php else : ?>
+            <p class="dataTypes">No account information available</p>
+        <?php endif; ?>
     </div>
-    <footer>
+    <!-- Account name, balance and transaction -->
+    <div class="statement">
+        <div class="accountLogs">
+            <div class="accountName">
+                <span class="accountSpecs">
+                    <h3>Account Name:</h3>
+                </span><br>
+                <span class="accountSpecs">
+                    <h3>Account Number:</h3>
+                </span><br>
+                <span class="loginButton">
+                    <a href="#" class="link">Transaction</a>
+                </span>
+            </div>
+            <div class="accountName">
+                <span class="accountSpecs">
+                    <?= htmlspecialchars($accounts["account_type"]) ?>
+                </span><br>
+                <span class="accountSpecs">
+                    <?= htmlspecialchars($accounts["account_number"]) ?>
+                </span><br>
+                <span class="loginButton">
+                    <a href="#" class="link">Statments</a>
+                </span>
+            </div>
+        </div>
+        <div class="accountLogs">
+            <div class="accountName">
+                <span class="accountBalance">
+                    <h3>Available</h3>
+                </span><br>
+                <span class="accountBalance">
+                    <h3>Pending</h3>
+                </span><br>
+                <span class="accountBalance">
+                    <h3>Balance</h3>
+                </span>
+            </div>
+            <div class="accountName">
+                <span class="accountBalance">
+                    <?= htmlspecialchars($latestBalance) ?>
+                </span><br>
+                <span class="accountBalance">
+                    <?= htmlspecialchars($latestBalance - $latestBalance) ?>
+                </span><br>
+                <span class="accountBalance">
+                    <?= htmlspecialchars($latestBalance) ?>
+                </span>
+
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="statementTransactions">
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Transaction Number</th>
+                            <th>Transaction Date</th>
+                            <th>Location</th>
+                            <th>Deposit</th>
+                            <th>Withdrawal</th>
+                            <th>Balance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($statement as $account) : ?>
+                            <tr>
+                                <td><?= htmlspecialchars($account["transaction_number"]) ?></td>
+                                <td><?= htmlspecialchars($account['transaction_date']) ?></td>
+                                <td><?= htmlspecialchars($account['location']) ?></td>
+                                <td><?= htmlspecialchars($account['deposit']) ?></td>
+                                <td><?= htmlspecialchars($account['withdrawal']) ?></td>
+                                <td><?= htmlspecialchars($account['balance']) ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="footer">
         <h4>AstroBank</h4>
         <div class="footerNav">
             <div>

@@ -84,9 +84,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <form method="post">
                 <div>
                     <label for="email">Email</label><br>
-                    <input type="email" name="email" id="email" size="15" value="<?= htmlspecialchars($_POST["email"] ?? "") ?>"><br>
+                    <input type="email" name="email" id="email" size="15" value="bensmith@email.com"><br>
                     <label for="password">Password</label><br>
-                    <input type="password" name="password" id="password" size="15">
+                    <input type="password" name="password" id="password" value="123456789p" size="15">
                 </div>
                 <br>
                 <button class="button loginButton" type="submit">Log in</button>
