@@ -5,9 +5,10 @@
     <title>AstroBank</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Load style sheet -->
+
     <script
-      src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"
       defer
+      src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"
     ></script>
     <link
       rel="stylesheet"
@@ -19,6 +20,7 @@
       href="./CSS/styles.css?<?php echo time(); ?>"
     />
     <script defer src="./JS/drop.js" ?<?php echo time(); ?></script>
+    <script defer src="./JS/validation.js" ?<?php echo time(); ?></script>
   </head>
 
   <body>
@@ -31,28 +33,46 @@
       <nav>
         <div class="button-container">
           <!-- Navigation buttons in header -->
-          <button class="button" id="banking-button">Banking</button>
+          <button class="button selected" id="banking-button">Banking</button>
           <button class="button" id="loans-button">Home Loans</button>
           <button class="button" id="insurance-button">Insurance</button>
           <button class="button" id="about-button">About Us</button>
           <button class="button" id="contact-button">Contact Us</button>
         </div>
       </nav>
-      <div class="searchLoginDiv">
-        <!-- Search box and login button -->
-        <form class="searchBox">
-          <button title="search" type="submit">
-            <i class="fa fa-search"></i>
-          </button>
-          <input type="text" placeholder="Search.." name="search" />
-        </form>
+      <div class="desktopDisplays">
+        <div class="searchLoginDiv">
+          <!-- Search box and login button -->
+          <div>
+            <div class="button signUpButton">
+              <p class="link"></p>
+            </div>
+            <form class="searchBox">
+              <button title="searchIcon" type="submit">
+                <i class="fa fa-search"></i>
+              </button>
+              <input type="text" placeholder="Search.." name="search" />
+            </form>
+          </div>
+          <div>
+            <div class="loginButton">
+              <a href="./index.php" class="link">Back to AstroBank</a>
+            </div>
+            <div class="loginButton">
+              <p class="link"></p>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
+    <div class="breadcrumbs">
+      <a href="./index.php">AstroBank/</a><a href="./signup.html">Signup/</a>
+    </div>
 
     <div class="profile_section">
       <h2>Signup</h2>
       <div class="profileDetails">
-        <form action="process_signup.php" method="post" id="signup" novalidate>
+        <form action="process_signup.php" method="post" id="signup">
           <div>
             <label for="name">Name</label><br />
             <input type="text" id="name" name="name" size="15" />
@@ -92,30 +112,36 @@
       </div>
     </div>
     <footer>
-      <h4>AstroBank</h4>
       <div class="footerNav">
-        <div>
-          <h5>Internet Banking</h5>
-          <ul>
+        <h4>AstroBank</h4>
+        <div class="dropdown">
+          <button>
+            <h5>Internet Banking <i class="fa fa-caret-down"></i></h5>
+          </button>
+          <ul class="dropdown-content">
             <li><a href="./login.php">Log in to internet banking</a></li>
             <li><a href="./homeloans.php">Home Loans</a></li>
-            <li><a href="./personal.php">Personal Loans</a></li>
+            <li><a href="./homeloans.php">Personal Loans</a></li>
             <li><a href="./creditcards.php">Credit Cards</a></li>
             <li><a href="./insurance.php">Insurance</a></li>
           </ul>
         </div>
-        <div>
-          <h5>Support</h5>
-          <ul>
+        <div class="dropdown">
+          <button>
+            <h5>Support <i class="fa fa-caret-down"></i></h5>
+          </button>
+          <ul class="dropdown-content">
             <li><a href="./contact.php">Contact Astro Bank</a></li>
             <li><a href="./insurance.php">Make a claim</a></li>
             <li><a href="./contact.php">Find a branch or ATM</a></li>
             <li><a href="./contact.php">Complaints</a></li>
           </ul>
         </div>
-        <div>
-          <h5>Media and Links</h5>
-          <ul>
+        <div class="dropdown">
+          <button>
+            <h5>Media and Links <i class="fa fa-caret-down"></i></h5>
+          </button>
+          <ul class="dropdown-content">
             <li><a href="./about.php">About Astro Bank</a></li>
             <li><a href="./about.php">Astro Bank App</a></li>
             <li><a href="./about.php">Media</a></li>

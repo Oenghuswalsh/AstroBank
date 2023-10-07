@@ -49,7 +49,7 @@ $stmt->bind_param(
 
 if ($stmt->execute()) {
 
-    header("Location: index.php");
+    header("Location: signup_successful.php");
     exit;
 } else {
 

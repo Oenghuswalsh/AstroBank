@@ -12,6 +12,26 @@ if (isset($_SESSION["user_id"])) {
     $result = $mysqli->query($sql);
 
     $user = $result->fetch_assoc();
+
+    // Check if the user has an account in the "bank" table
+    $sql = "SELECT * FROM bank WHERE user_id = {$_SESSION["user_id"]}";
+    $result = $mysqli->query($sql);
+    $hasAccount = $result->num_rows > 0;
+
+    // Initialize an array to store account types
+    $accountTypes = array();
+
+    if ($hasAccount) {
+        // Fetch all account types associated with the user from the "accounts" table
+        $sql = "SELECT DISTINCT account_type FROM accounts WHERE account_number IN (SELECT account_number FROM bank WHERE user_id = {$_SESSION["user_id"]})";
+        $result = $mysqli->query($sql);
+
+        if ($result && $result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $accountTypes[] = $row["account_type"];
+            }
+        }
+    }
 }
 
 ?>
@@ -54,7 +74,7 @@ if (isset($_SESSION["user_id"])) {
         </div>
         <nav class="desktops">
             <div id="navMenu" class="button-container"> <!-- Navigation buttons in header -->
-                <button class="button" id="banking-button">Banking</button>
+                <button class="button selected" id="banking-button">Banking</button>
                 <button class="button" id="loans-button">Home Loans</button>
                 <button class="button" id="insurance-button">Insurance</button>
                 <button class="button" id="about-button">About Us</button>
@@ -82,7 +102,7 @@ if (isset($_SESSION["user_id"])) {
                 <div>
                     <div class="loginButton">
                         <?php if (isset($user)) : ?>
-                            <a href="./myastrobank.php" class="link">Back to My Accounts</a>
+                            <a href="./myastrobank.php" class="link">Back to My AstroBank</a>
                         <?php endif; ?>
                     </div>
                     <div class="loginButton">
@@ -96,6 +116,9 @@ if (isset($_SESSION["user_id"])) {
             </div>
         </div>
     </header>
+    <div class="breadcrumbs">
+        <a href="./index.php">AstroBank/</a><a href="./myastrobank.php">My AstroBank/</a>
+    </div>
 
     <div class="sub-buttons desktops"> <!-- Seccond row of Navigation buttons for banking -->
         <button class="button" id="personal-button">Personal</button>
@@ -106,15 +129,6 @@ if (isset($_SESSION["user_id"])) {
             <div class="dropdown mobileDisplays">
                 <div class="button signUpButton">
                     <a href="signup.html" class="link">Sign up</a>
-                </div>
-            </div>
-            <div class="dropdown">
-                <button class="button">My Accounts</button>
-                <div class="dropdown-content"> <!-- links to personal banking content -->
-                    <a href="./myaccounts.php">Everyday account</a>
-                    <a href="./myaccounts.php">Apply for a Savings account</a>
-                    <a href="./myaccounts.php">Apply for a Loan</a>
-                    <a href="./myaccounts.php">Apply for a Credit Card</a>
                 </div>
             </div>
             <div class="dropdown">
@@ -149,7 +163,6 @@ if (isset($_SESSION["user_id"])) {
             <div class="dropdown mobileDisplays">
                 <div class="button loginButton">
                     <?php if (isset($user)) : ?>
-                        <p>Hello <?= htmlspecialchars($user["name"]) ?></p>
                         <a href="logout.php" class="link">Log out</a>
                     <?php else : ?>
                         <a href="login.php" class="link">Log in</a>
@@ -158,11 +171,6 @@ if (isset($_SESSION["user_id"])) {
             </div>
         </div>
         <div class="business-container">
-            <div class="dropdown mobileDisplays">
-                <div class="button signUpButton">
-                    <a href="signup.html" class="link">Sign up</a>
-                </div>
-            </div>
             <div class="dropdown">
                 <button class="button">Accounts</button>
                 <div class="dropdown-content"> <!-- links to business banking content -->
@@ -183,16 +191,6 @@ if (isset($_SESSION["user_id"])) {
                     <a href="./business.php">Business loans</a>
                     <a href="./business.php">Commerical loans</a>
                     <a href="./business.php">Overdraft accounts</a>
-                </div>
-            </div>
-            <div class="dropdown mobileDisplays">
-                <div class="button loginButton">
-                    <?php if (isset($user)) : ?>
-                        <p>Hello <?= htmlspecialchars($user["name"]) ?></p>
-                        <a href="logout.php" class="link">Log out</a>
-                    <?php else : ?>
-                        <a href="login.php" class="link">Log in</a>
-                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -324,35 +322,53 @@ if (isset($_SESSION["user_id"])) {
             </div>
         </div>
     </div>
-
-
-
-
-    <footer class="footer">
-        <h4>AstroBank</h4>
+    <div>
+        <?php if ($hasAccount) : ?>
+            <?php foreach ($accountTypes as $accountType) : ?>
+                <a class="link accountButton" href="./myaccounts.php?account_type=<?= urlencode($accountType) ?>"><?php echo ucfirst($accountType); ?> Account</a>
+            <?php endforeach; ?>
+            <a href="./account_applaction.php" class="link accountButton">Open an Account</a>
+        <?php else : ?>
+            <a href="./account_applaction.php" class="link accountButton">Open an Account</a>
+        <?php endif; ?>
+        <a href="./logout.php" class="link accountButton mobileDisplays">Log Out</a>
+    </div>
+    <footer>
         <div class="footerNav">
-            <div>
-                <h5>Internet Banking</h5>
-                <ul>
-                    <li><a href="./login.php">Log in to internet banking</a></li>
+            <h4>AstroBank</h4>
+            <div class="dropdown">
+                <button>
+                    <h5>Internet Banking <i class="fa fa-caret-down"></i></h5>
+                </button>
+                <ul class="dropdown-content">
+                    <li><?php if (isset($user)) : ?>
+                            <a href="./myastrobank.php">Go to My Accounts</a>
+                        <?php else : ?>
+                            <a href="./login.php">Log in to net banking</a>
+                        <?php endif; ?>
+                    </li>
                     <li><a href="./homeloans.php">Home Loans</a></li>
-                    <li><a href="./personal.php">Personal Loans</a></li>
+                    <li><a href="./homeloans.php">Personal Loans</a></li>
                     <li><a href="./creditcards.php">Credit Cards</a></li>
                     <li><a href="./insurance.php">Insurance</a></li>
                 </ul>
             </div>
-            <div>
-                <h5>Support</h5>
-                <ul>
+            <div class="dropdown">
+                <button>
+                    <h5>Support <i class="fa fa-caret-down"></i></h5>
+                </button>
+                <ul class="dropdown-content">
                     <li><a href="./contact.php">Contact Astro Bank</a></li>
                     <li><a href="./insurance.php">Make a claim</a></li>
                     <li><a href="./contact.php">Find a branch or ATM</a></li>
                     <li><a href="./contact.php">Complaints</a></li>
                 </ul>
             </div>
-            <div>
-                <h5>Media and Links</h5>
-                <ul>
+            <div class="dropdown">
+                <button>
+                    <h5>Media and Links <i class="fa fa-caret-down"></i></h5>
+                </button>
+                <ul class="dropdown-content">
                     <li><a href="./about.php">About Astro Bank</a></li>
                     <li><a href="./about.php">Astro Bank App</a></li>
                     <li><a href="./about.php">Media</a></li>

@@ -96,6 +96,9 @@ if (isset($_SESSION["user_id"])) {
             </div>
         </div>
     </header>
+    <div class="breadcrumbs">
+        <a href="./index.php">AstroBank/</a>
+    </div>
 
     <div class="sub-buttons desktops"> <!-- Seccond row of Navigation buttons for banking -->
         <button class="button" id="personal-button">Personal</button>
@@ -105,7 +108,11 @@ if (isset($_SESSION["user_id"])) {
         <div class="personal-container">
             <div class="dropdown mobileDisplays">
                 <div class="button signUpButton">
-                    <a href="signup.html" class="link">Sign up</a>
+                    <?php if (isset($user)) : ?>
+                        <a href="./myastrobank.php" class="link">Go back to My Accounts</a>
+                    <?php else : ?>
+                        <a href="signup.html" class="link">Sign up</a>
+                    <?php endif; ?>
                 </div>
             </div>
             <div class="dropdown">
@@ -140,7 +147,6 @@ if (isset($_SESSION["user_id"])) {
             <div class="dropdown mobileDisplays">
                 <div class="button loginButton">
                     <?php if (isset($user)) : ?>
-                        <p>Hello <?= htmlspecialchars($user["name"]) ?></p>
                         <a href="logout.php" class="link">Log out</a>
                     <?php else : ?>
                         <a href="login.php" class="link">Log in</a>
@@ -149,11 +155,6 @@ if (isset($_SESSION["user_id"])) {
             </div>
         </div>
         <div class="business-container">
-            <div class="dropdown mobileDisplays">
-                <div class="button signUpButton">
-                    <a href="signup.html" class="link">Sign up</a>
-                </div>
-            </div>
             <div class="dropdown">
                 <button class="button">Accounts</button>
                 <div class="dropdown-content"> <!-- links to business banking content -->
@@ -174,16 +175,6 @@ if (isset($_SESSION["user_id"])) {
                     <a href="./business.php">Business loans</a>
                     <a href="./business.php">Commerical loans</a>
                     <a href="./business.php">Overdraft accounts</a>
-                </div>
-            </div>
-            <div class="dropdown mobileDisplays">
-                <div class="button loginButton">
-                    <?php if (isset($user)) : ?>
-                        <p>Hello <?= htmlspecialchars($user["name"]) ?></p>
-                        <a href="logout.php" class="link">Log out</a>
-                    <?php else : ?>
-                        <a href="login.php" class="link">Log in</a>
-                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -317,7 +308,7 @@ if (isset($_SESSION["user_id"])) {
     </div>
     <div class="banner">
         <div class="bannerH2">
-            <h2 class="bannerheader">Reach for the stars with Astro Bank</h2>
+            <h2 class="bannerheader">Reach for the stars with Astro Bank</h2><br>
             <h3 class="bannerpara">Personal Loans 24 hour approval</h3>
         </div>
         <img class="bannerImage" src="./Images/Green_clouds.jpg" alt="">
@@ -330,7 +321,11 @@ if (isset($_SESSION["user_id"])) {
             <p>Home Loans</p>
             <p>Credit Cards</p>
             <p>Business Accounts</p>
-            <a href="./login.php" class="linkButton">Log in to net banking</a>
+            <?php if (isset($user)) : ?>
+                <a href="./myastrobank.php" class="linkButton">Go to My Accounts</a>
+            <?php else : ?>
+                <a href="./login.php" class="linkButton">Log in to net banking</a>
+            <?php endif; ?>
         </div>
         <div class="bankingCards">
             <h2>Loans Products</h2>
@@ -358,7 +353,7 @@ if (isset($_SESSION["user_id"])) {
             </div>
             <div class="paraCards">
                 <h2>Advice and Blogs</h2>
-                <p c>How to make the most of the current Interest rates situation.
+                <p>How to make the most of the current Interest rates situation.
                     Habits to help reduce your expenses and increase your savings.
                     Upcoming events, online advice sessions with exports in property investment strategies, share market and investing.
                     How much super do you have? and How much super will you need at retirement? </p>
@@ -392,30 +387,41 @@ if (isset($_SESSION["user_id"])) {
         </div>
     </div>
     <footer>
-        <h4>AstroBank</h4>
         <div class="footerNav">
-            <div>
-                <h5>Internet Banking</h5>
-                <ul>
-                    <li><a href="./login.php">Log in to internet banking</a></li>
+            <h4>AstroBank</h4>
+            <div class="dropdown">
+                <button>
+                    <h5>Internet Banking <i class="fa fa-caret-down"></i></h5>
+                </button>
+                <ul class="dropdown-content">
+                    <li><?php if (isset($user)) : ?>
+                            <a href="./myastrobank.php">Go to My Accounts</a>
+                        <?php else : ?>
+                            <a href="./login.php">Log in to net banking</a>
+                        <?php endif; ?>
+                    </li>
                     <li><a href="./homeloans.php">Home Loans</a></li>
-                    <li><a href="./personal.php">Personal Loans</a></li>
+                    <li><a href="./homeloans.php">Personal Loans</a></li>
                     <li><a href="./creditcards.php">Credit Cards</a></li>
                     <li><a href="./insurance.php">Insurance</a></li>
                 </ul>
             </div>
-            <div>
-                <h5>Support</h5>
-                <ul>
+            <div class="dropdown">
+                <button>
+                    <h5>Support <i class="fa fa-caret-down"></i></h5>
+                </button>
+                <ul class="dropdown-content">
                     <li><a href="./contact.php">Contact Astro Bank</a></li>
                     <li><a href="./insurance.php">Make a claim</a></li>
                     <li><a href="./contact.php">Find a branch or ATM</a></li>
                     <li><a href="./contact.php">Complaints</a></li>
                 </ul>
             </div>
-            <div>
-                <h5>Media and Links</h5>
-                <ul>
+            <div class="dropdown">
+                <button>
+                    <h5>Media and Links <i class="fa fa-caret-down"></i></h5>
+                </button>
+                <ul class="dropdown-content">
                     <li><a href="./about.php">About Astro Bank</a></li>
                     <li><a href="./about.php">Astro Bank App</a></li>
                     <li><a href="./about.php">Media</a></li>

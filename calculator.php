@@ -54,7 +54,7 @@ if (isset($_SESSION["user_id"])) {
         </div>
         <nav class="desktops">
             <div id="navMenu" class="button-container"> <!-- Navigation buttons in header -->
-                <button class="button" id="banking-button">Banking</button>
+                <button class="button selected" id="banking-button">Banking</button>
                 <button class="button" id="loans-button">Home Loans</button>
                 <button class="button" id="insurance-button">Insurance</button>
                 <button class="button" id="about-button">About Us</button>
@@ -96,6 +96,9 @@ if (isset($_SESSION["user_id"])) {
             </div>
         </div>
     </header>
+    <div class="breadcrumbs">
+        <a href="./index.php">AstroBank/</a><a href="./calculator.php">Calculator/</a>
+    </div>
 
     <div class="sub-buttons desktops"> <!-- Seccond row of Navigation buttons for banking -->
         <button class="button" id="personal-button">Personal</button>
@@ -140,7 +143,6 @@ if (isset($_SESSION["user_id"])) {
             <div class="dropdown mobileDisplays">
                 <div class="button loginButton">
                     <?php if (isset($user)) : ?>
-                        <p>Hello <?= htmlspecialchars($user["name"]) ?></p>
                         <a href="logout.php" class="link">Log out</a>
                     <?php else : ?>
                         <a href="login.php" class="link">Log in</a>
@@ -149,11 +151,6 @@ if (isset($_SESSION["user_id"])) {
             </div>
         </div>
         <div class="business-container">
-            <div class="dropdown mobileDisplays">
-                <div class="button signUpButton">
-                    <a href="signup.html" class="link">Sign up</a>
-                </div>
-            </div>
             <div class="dropdown">
                 <button class="button">Accounts</button>
                 <div class="dropdown-content"> <!-- links to business banking content -->
@@ -174,16 +171,6 @@ if (isset($_SESSION["user_id"])) {
                     <a href="./business.php">Business loans</a>
                     <a href="./business.php">Commerical loans</a>
                     <a href="./business.php">Overdraft accounts</a>
-                </div>
-            </div>
-            <div class="dropdown mobileDisplays">
-                <div class="button loginButton">
-                    <?php if (isset($user)) : ?>
-                        <p>Hello <?= htmlspecialchars($user["name"]) ?></p>
-                        <a href="logout.php" class="link">Log out</a>
-                    <?php else : ?>
-                        <a href="login.php" class="link">Log in</a>
-                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -354,37 +341,48 @@ if (isset($_SESSION["user_id"])) {
             <p>Total Cost of Loan: <span id="totalCost">0.00</span></p>
         </div>
         <?php if (isset($user)) : ?>
-            <a href="./contact.php" class="linkButton">Apply for this loan</a>
+            <a href="./myastrobank.php" class="linkButton">Apply</a>
         <?php else : ?>
-            <a href="./login.php" class="linkButton">Apply for this loan</a>
+            <a href="./login.php" class="linkButton">Apply</a>
         <?php endif; ?>
 
     </div>
     <footer>
-        <h4>AstroBank</h4>
         <div class="footerNav">
-            <div>
-                <h5>Internet Banking</h5>
-                <ul>
-                    <li><a href="./login.php">Log in to internet banking</a></li>
+            <h4>AstroBank</h4>
+            <div class="dropdown">
+                <button>
+                    <h5>Internet Banking <i class="fa fa-caret-down"></i></h5>
+                </button>
+                <ul class="dropdown-content">
+                    <li><?php if (isset($user)) : ?>
+                            <a href="./myastrobank.php">Go to My Accounts</a>
+                        <?php else : ?>
+                            <a href="./login.php">Log in to net banking</a>
+                        <?php endif; ?>
+                    </li>
                     <li><a href="./homeloans.php">Home Loans</a></li>
-                    <li><a href="./personal.php">Personal Loans</a></li>
+                    <li><a href="./homeloans.php">Personal Loans</a></li>
                     <li><a href="./creditcards.php">Credit Cards</a></li>
                     <li><a href="./insurance.php">Insurance</a></li>
                 </ul>
             </div>
-            <div>
-                <h5>Support</h5>
-                <ul>
+            <div class="dropdown">
+                <button>
+                    <h5>Support <i class="fa fa-caret-down"></i></h5>
+                </button>
+                <ul class="dropdown-content">
                     <li><a href="./contact.php">Contact Astro Bank</a></li>
                     <li><a href="./insurance.php">Make a claim</a></li>
                     <li><a href="./contact.php">Find a branch or ATM</a></li>
                     <li><a href="./contact.php">Complaints</a></li>
                 </ul>
             </div>
-            <div>
-                <h5>Media and Links</h5>
-                <ul>
+            <div class="dropdown">
+                <button>
+                    <h5>Media and Links <i class="fa fa-caret-down"></i></h5>
+                </button>
+                <ul class="dropdown-content">
                     <li><a href="./about.php">About Astro Bank</a></li>
                     <li><a href="./about.php">Astro Bank App</a></li>
                     <li><a href="./about.php">Media</a></li>

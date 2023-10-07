@@ -1,112 +1,177 @@
 <?php
+# Start session and login user to MYSQL database
 
-if (empty($_POST["name"])) {
-    die("Name is required");
+session_start();
+
+if (isset($_SESSION["user_id"])) {
+
+    $mysqli = require __DIR__ . "/database.php";
+
+    $sql = "SELECT * FROM users
+            WHERE user_id = {$_SESSION["user_id"]}";
+
+    $result = $mysqli->query($sql);
+
+    $user = $result->fetch_assoc();
 }
 
-if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
-    die("Valid email is required");
-}
+?>
 
-if (strlen($_POST["password"]) < 8) {
-    die("Password must be at least 8 characters");
-}
+<!DOCTYPE html>
+<html lang="en">
 
-if (!preg_match("/[a-z]/i", $_POST["password"])) {
-    die("Password must contain at least one letter");
-}
+<head>
+    <meta charset="UTF-8" />
+    <title>Account Applacation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Load style sheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="./CSS/styles.css?<?php echo time(); ?>">
+    <script defer src="./JS/drop.js" ?<?php echo time(); ?>></script>
 
-if (!preg_match("/[0-9]/", $_POST["password"])) {
-    die("Password must contain at least one number");
-}
+</head>
 
-if ($_POST["password"] !== $_POST["password_confirmation"]) {
-    die("Passwords must match");
-}
+<body>
+    <header>
+        <div class="siteName">
+            <a href="./index.php">
+                <h1>AstroBank</h1>
+            </a>
+        </div>
+        <nav>
+            <div class="button-container"> <!-- Navigation buttons in header -->
+                <button class="button selected" id="banking-button">Banking</button>
+                <button class="button" id="loans-button">Home Loans</button>
+                <button class="button" id="insurance-button">Insurance</button>
+                <button class="button" id="about-button">About Us</button>
+                <button class="button" id="contact-button">Contact Us</button>
+            </div>
+        </nav>
+        <div class="desktopDisplays">
+            <div class="searchLoginDiv"> <!-- Search box and login button -->
+                <div>
+                    <div class="button signUpButton">
+                        <?php if (isset($user)) : ?>
+                            <a href="./myastrobank.php">
+                                <p>Hello <?= htmlspecialchars($user["name"]) ?></p>
+                            </a>
+                        <?php else : ?>
+                            <a href="signup.html" class="link">Sign up</a>
+                        <?php endif; ?>
+                    </div>
+                    <form class="searchBox">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                        <input type="text" placeholder="Search.." name="search">
+                    </form>
+                </div>
+                <div>
+                    <div class="loginButton">
+                        <?php if (isset($user)) : ?>
+                            <a href="./myastrobank.php" class="link">Back to My AstroBank</a>
+                        <?php endif; ?>
+                    </div>
+                    <div class="loginButton">
+                        <?php if (isset($user)) : ?>
+                            <a href="logout.php" class="link">Log out</a>
+                        <?php else : ?>
+                            <a href="login.php" class="link">Log in</a>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="breadcrumbs">
+        <a href="./index.php">AstroBank/</a><a href="./myastrobank.php">My AstroBank/</a><a href="#">Apply/</a>
+    </div>
 
-$password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
-$mysqli = require __DIR__ . "/database.php";
+    <div class="profile_section">
+        <h2>Apply for an account</h2>
+        <div class="profileDetails">
+            <form action="process_applacation.php" method="post" id="signup" onsubmit="return validateForm();" novalidate>
+                <div>
+                    <label for="account_type">Account Type</label><br />
+                    <select type="text" name="account_type" id="account_type" account_type>
+                        <option selected="selected" disabled>Select an account type</option>
+                        <option>Everyday Transaction</option>
+                        <option>Savings</option>
+                        <option>Loan</option>
+                    </select>
+                    <p id="error_message"></p>
+                </div>
+                <?php
+                if (isset($_SESSION['error_message'])) {
+                    echo '<div class="error">' . $_SESSION['error_message'] . '</div>';
+                    unset($_SESSION['error_message']);
+                }
+                ?>
+                <div>
+                    <label for="deposit">Deposit</label><br />
+                    <input type="number" id="deposit" name="deposit" size="15" />
+                </div>
+                <?php
+                if (isset($_SESSION['error_message'])) {
+                    echo '<div class="error">' . $_SESSION['error_message'] . '</div>';
+                    unset($_SESSION['error_message']);
+                }
+                ?>
+                <button class="button signUpButton" type="submit" value="Submit">Apply</button><br>
+                <a href="./myastrobank.php" class="link applyLinkButton">Cancel</a>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <div class="footerNav">
+            <h4>AstroBank</h4>
+            <div class="dropdown">
+                <button>
+                    <h5>Internet Banking <i class="fa fa-caret-down"></i></h5>
+                </button>
+                <ul class="dropdown-content">
+                    <li><?php if (isset($user)) : ?>
+                            <a href="./myastrobank.php">Go to My Accounts</a>
+                        <?php else : ?>
+                            <a href="./login.php">Log in to net banking</a>
+                        <?php endif; ?>
+                    </li>
+                    <li><a href="./homeloans.php">Home Loans</a></li>
+                    <li><a href="./homeloans.php">Personal Loans</a></li>
+                    <li><a href="./creditcards.php">Credit Cards</a></li>
+                    <li><a href="./insurance.php">Insurance</a></li>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <button>
+                    <h5>Support <i class="fa fa-caret-down"></i></h5>
+                </button>
+                <ul class="dropdown-content">
+                    <li><a href="./contact.php">Contact Astro Bank</a></li>
+                    <li><a href="./insurance.php">Make a claim</a></li>
+                    <li><a href="./contact.php">Find a branch or ATM</a></li>
+                    <li><a href="./contact.php">Complaints</a></li>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <button>
+                    <h5>Media and Links <i class="fa fa-caret-down"></i></h5>
+                </button>
+                <ul class="dropdown-content">
+                    <li><a href="./about.php">About Astro Bank</a></li>
+                    <li><a href="./about.php">Astro Bank App</a></li>
+                    <li><a href="./about.php">Media</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Oenghus Walsh</p>
+            <Div class="socialMedia">
+                <a href="#"><img class="mediaIcon" src="./Images/facebook.png" alt=""></a>
+                <a href="#"><img class="mediaIcon" src="./Images/youtube-32.png" alt=""></a>
+                <a href="#"><img class="mediaIcon" src="./Images/twitter.png" alt=""></a>
+            </Div>
+        </div>
+    </footer>
+</body>
 
-$sql = "INSERT INTO users (name, email, password_hash, phone, address, date_of_birth)
-        VALUES (?, ?, ?, ?, ?, ?)";
-
-$stmt = $mysqli->stmt_init();
-
-if (!$stmt->prepare($sql)) {
-    die("SQL error: " . $mysqli->error);
-}
-
-$stmt->bind_param(
-    "ssssss",
-    $_POST["name"],
-    $_POST["email"],
-    $password_hash,
-    $_POST["phone"],
-    $_POST["address"],
-    $_POST["date_of_birth"]
-);
-
-
-if ($stmt->execute()) {
-    // Get the user_id of the inserted user
-    $user_id = $mysqli->insert_id;
-
-    // Generate a unique 4-digit account number
-    $account_number = generateUniqueAccountNumber($mysqli);
-
-    // Insert user_id and account_number into the "bank" table
-    $sql_bank = "INSERT INTO bank (user_id, account_number) VALUES (?, ?)";
-    $stmt_bank = $mysqli->prepare($sql_bank);
-
-    if (!$stmt_bank) {
-        die("SQL error: " . $mysqli->error);
-    }
-
-    $stmt_bank->bind_param("is", $user_id, $account_number);
-
-    if ($stmt_bank->execute()) {
-        header("Location: myastrobank.php");
-        exit;
-    } else {
-        die("Error inserting data into 'bank' table: " . $stmt_bank->error);
-    }
-} else {
-    if ($mysqli->errno === 1062) {
-        die("Email already taken");
-    } else {
-        die($mysqli->error . " " . $mysqli->errno);
-    }
-}
-
-// Function to generate a unique 4-digit account number
-function generateUniqueAccountNumber($mysqli)
-{
-    $unique = false;
-    $account_number = "";
-
-    while (!$unique) {
-        // Generate a random 4-digit number
-        $account_number = str_pad(mt_rand(1, 9999), 4, '0', STR_PAD_LEFT);
-
-        // Check if the account number already exists in the "bank" table
-        $check_sql = "SELECT COUNT(*) FROM bank WHERE account_number = ?";
-        $check_stmt = $mysqli->prepare($check_sql);
-
-        if (!$check_stmt) {
-            die("SQL error: " . $mysqli->error);
-        }
-
-        $check_stmt->bind_param("s", $account_number);
-        $check_stmt->execute();
-        $check_stmt->bind_result($count);
-        $check_stmt->fetch();
-        $check_stmt->close();
-
-        if ($count == 0) {
-            $unique = true;
-        }
-    }
-
-    return $account_number;
-}
+</html>

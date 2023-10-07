@@ -34,35 +34,35 @@ const containers = {
 };
 
 buttonIds.forEach((buttonId) => {
-  const button = document.getElementById(buttonId); // Get the Id fo the clicked button
+  const button = document.getElementById(buttonId); // Get the Id of the clicked navbar button
   button.addEventListener("click", () => {
-    // Reset all buttons to their original state
+    // Reset all navbar buttons to their original state
     buttonIds.forEach((id) => {
       const resetButton = document.getElementById(id);
-      resetButton.style.backgroundColor = "transparent"; // Reset background color to transparent
-      resetButton.style.border = "none"; // reset border to none
+      resetButton.style.backgroundColor = "transparent"; // Reset background color of navbar button to transparent
+      resetButton.style.border = "none"; // reset border of navbar button to none
     });
 
-    // Set the "Banking" button to the desired style of #ff7a00 orande border and #ffd900 yellow background
+    // Set the Banking button style to #ff7a00 orande border and #ffd900 yellow background
     const bankingButton = document.getElementById("banking-button");
     bankingButton.style.backgroundColor = "#ffd900";
     bankingButton.style.border = "solid 2px #ff7a00";
 
-    // Set the clicked button to the desired style of #ff7a00 orande border and #ffd900 yellow background
+    // Set the clicked navbar button style to #ff7a00 orande border and #ffd900 yellow background
     button.style.backgroundColor = "#ffd900";
     button.style.border = "solid 2px #ff7a00";
 
-    // Hide all containers
+    // Hide all dropdown containers
     for (const containerKey in containers) {
       if (containers.hasOwnProperty(containerKey)) {
         containers[containerKey].style.display = "none";
       }
     }
 
-    // Display the corresponding container relating to the ID of the clicked button
+    // Display the dropdown container relating to the ID of the clicked navbar button
     containers[buttonId.split("-")[0]].style.display = "flex";
 
-    // Hide or display the subButtons according to the ID of the button clicked
+    // Hide or display the navbar subButtons according to the ID of the button clicked
     if (
       buttonId === "loans-button" ||
       buttonId === "insurance-button" ||
@@ -87,15 +87,14 @@ buttonIds.forEach((buttonId) => {
   });
 });
 document.addEventListener("DOMContentLoaded", function () {
-  // Get id of the button and the form
+  // Get the id of the menu icon and search icon for toggling the navbar and search bar on moblie display
   var searchButton = document.getElementById("searchButton");
   var searchForm = document.getElementById("searchForm");
   var menuIcon = document.getElementById("menuIcon");
   var navMenu = document.getElementById("navMenu");
 
-  // Click event listener for search button
   searchButton.addEventListener("click", function () {
-    // Toggle the "display" class on the form to control its visibility
+    // Toggle the display of the search bar on moblie display
     if (
       searchForm.style.display === "none" ||
       searchForm.style.display === ""
@@ -106,9 +105,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Click event listener for search button
   menuIcon.addEventListener("click", function () {
-    // Toggle the "display" class on the form to control its visibility
+    // Toggle the display of the navbar dropdown menu on moblie display
     if (navMenu.style.display === "none" || navMenu.style.display === "") {
       navMenu.style.display = "flex";
     } else {
@@ -116,12 +114,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+// Functions and formula to calculate the repayment amount and total loan costs
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("loanCalculatorForm");
   const repaymentAmount = document.getElementById("repaymentAmount");
   const totalCost = document.getElementById("totalCost");
 
-  // Add a reference to the reset button
   const resetButton = document.querySelector('input[type="reset"]');
 
   form.addEventListener("submit", function (e) {
@@ -134,10 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const interestRate = parseFloat(form.interestRate.value) / 100;
     const repaymentFrequency = form.repaymentFrequency.value;
 
-    // Calculate the repayment amount and total cost here
-    // You can use different formulas based on the loan type
-
-    // Example formula for monthly payments:
+    // Formula for monthly payments:
     const monthlyInterestRate = interestRate / 12;
     const numberOfPayments = term;
     const monthlyRepayment =
@@ -151,11 +146,24 @@ document.addEventListener("DOMContentLoaded", function () {
     repaymentAmount.textContent = monthlyRepayment.toFixed(2);
     totalCost.textContent = totalCostOfLoan.toFixed(2);
   });
-  // Add an event listener to the reset button to clear the form fields
+  // Reset button to clear the calculator form fields
   resetButton.addEventListener("click", function () {
     form.reset();
-    // Clear the result fields as well
+
     repaymentAmount.textContent = "0.00";
     totalCost.textContent = "0.00";
   });
 });
+// Open an account form validation function
+function validateForm() {
+  var accountType = document.getElementById("account_type").value;
+  var errorMessage = document.getElementById("error_message");
+
+  if (accountType === "Select an account type") {
+    errorMessage.textContent = "Please select an account type.";
+    return false;
+  } else {
+    errorMessage.textContent = "";
+    return true;
+  }
+}
