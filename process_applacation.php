@@ -14,13 +14,12 @@ if (isset($_SESSION["user_id"])) {
     $user = $result->fetch_assoc();
 }
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Handle the form submission when the user wants to open an account
 
-    // Validate and sanitize user input (you should add more validation)
+    // Validate user input
     $account_type = $_POST["account_type"];
     $deposit = $_POST["deposit"];
 
-    // Check if the deposit amount is valid (greater than or equal to $1)
+    // Validate if the deposit amount is valid (greater than or equal to $1)
     if ($deposit < 1) {
         $_SESSION['error_message'] = "Deposit amount must be at least $1.";
         header("Location: account_applaction.php");
@@ -28,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 
-    // Get the user_id of the logged-in user from the session
+    // Get the user_id of the logged-in user from the session user_id
     $user_id = $_SESSION["user_id"];
 
     $account_type = $_POST["account_type"];

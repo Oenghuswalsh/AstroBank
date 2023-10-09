@@ -41,7 +41,7 @@ h2 {
   margin: 0;
 }
 h3 {
-  font-size: 20px;
+  font-size: 1emx;
   margin: 0;
 }
 header {
@@ -210,6 +210,13 @@ button:hover {
 .loginButton:hover {
   border: solid 2px #ff7a00;
   font-weight: 700;
+}
+.ui-tooltip {
+  width: 220px;
+  text-align: center;
+  background-color: #ffd900;
+  border: solid 4px #14ff00;
+  border-radius: 10px;
 }
 /* Styling for search box and signup button*/
 .searchLoginDiv {
@@ -524,8 +531,7 @@ footer button {
   display: flex;
   flex-direction: row;
   background-color: #ffd900;
-  line-height: normal;
-  height: 25px;
+  height: 20px;
   border-bottom: 4px solid #ffd900;
   border-top: 4px solid #ffd900;
   margin-top: 1em;
@@ -535,14 +541,14 @@ footer button {
 }
 .dataTypes {
   background-color: #ffd900;
-  font-size: 20px;
-  height: 25px;
+  font-size: 1em;
+  height: 20px;
   padding: 0 0.5em;
 }
 .userData {
   background-color: #14ff00;
-  font-size: 20px;
-  height: 25px;
+  font-size: 1em;
+  height: 20px;
   padding: 0 0.5em;
 }
 .accountName {

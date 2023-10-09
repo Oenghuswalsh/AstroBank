@@ -47,7 +47,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <!-- Load style sheet -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="./CSS/styles.css?<?php echo time(); ?>">
-    <script defer src="./JS/drop.js" ?<?php echo time(); ?>></script>
+    <script defer src="./JS/script.js" ?<?php echo time(); ?>></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+        $(function() {
+            $(document).tooltip({
+                position: {
+                    my: "left",
+                    at: "right+15",
+                    collision: "none"
+                }
+            });
+        });
+    </script>
+
 
 </head>
 
@@ -105,18 +119,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <a href="./index.php">AstroBank/</a><a href="./login.php">Login/</a>
     </div>
 
-    <section class="profile_section">
+    <section class="profile_section" title="Login as a demouser@email.com and explore demo Users accounts. Or Sign up via the Sign up button and open your own accounts.">
         <h2>Login</h2>
         <div class="profileDetails">
             <?php if ($is_invalid) : ?>
                 <em>Invalid login</em>
             <?php endif; ?>
-            <form method="post">
+            <form id="formLoginForm" method="post">
                 <div>
                     <label for="email">Email</label><br>
-                    <input type="email" name="email" id="email" size="15" value="tomstyles@email.com"><br>
+                    <input type="email" name="email" id="email" size="18" onfocus="this.value=''" value="demouser@email.com"><br>
                     <label for="password">Password</label><br>
-                    <input type="password" name="password" id="password" value="123456789p" size="15">
+                    <input type="password" name="password" id="password" onfocus="this.value=''" value="123456789p" size="18">
                 </div>
                 <br>
                 <button class="button loginButton" type="submit">Log in</button>
