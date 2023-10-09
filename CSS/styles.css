@@ -41,7 +41,7 @@ h2 {
   margin: 0;
 }
 h3 {
-  font-size: 1emx;
+  font-size: 1em;
   margin: 0;
 }
 header {
@@ -442,9 +442,15 @@ footer h4 {
   font-size: 40px;
   margin: 0 0 1em 0;
 }
-footer h5,
+footer button,
 ul {
   margin: 1em 0 0 0;
+}
+footer button {
+  border: none;
+  background-color: transparent;
+  font-size: 1em;
+  font-weight: 700;
 }
 footer p {
   margin: 1em 0 0 0;
@@ -497,15 +503,9 @@ footer .socialMedia .mediaIcon:hover {
   border: solid 2px #ff7a00;
   border-radius: 4px;
 }
-footer button {
-  border: none;
-  background-color: transparent;
-  font-size: 1em;
-  font-weight: 700;
-}
 #map {
   height: 450px;
-  width: 100%;
+  width: 50%;
   max-width: 100%;
   padding: 0;
 }
@@ -591,6 +591,9 @@ footer button {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin: 1em 1em 20em 1em;
+}
+.myAstrobankAccounts {
   margin: 1em 1em 20em 1em;
 }
 .accountLogs .loginButton {
@@ -718,6 +721,8 @@ td:last-child {
   }
   div #map {
     height: auto;
+    width: auto;
+    margin: 0;
   }
   /* Styling for account details and user details on myaccounts page*/
   .accountDetails {
@@ -855,12 +860,12 @@ td:last-child {
     padding: 0;
     margin: 0;
   }
-  .footerNav h5 {
+  .footerNav button {
     text-align: center;
     margin: 0;
   }
   .footerNav ul {
-    margin: 0;
+    margin: 10px;
     list-style-type: none;
     padding: 0;
   }
@@ -869,13 +874,7 @@ td:last-child {
     font-size: 1em;
     padding: 5px 0;
   }
-  footer button,
-  h5 {
-    border: none;
-    background-color: transparent;
-    font-size: 1em;
-    font-weight: 700;
-  }
+
   .loginfooter {
     position: fixed;
     bottom: 0;
@@ -883,6 +882,7 @@ td:last-child {
   }
   .copyright {
     flex-direction: column-reverse;
+    padding: 1em 50px;
   }
   .socialMedia {
     display: flex;

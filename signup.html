@@ -115,11 +115,15 @@
       <div class="footerNav">
         <h4>AstroBank</h4>
         <div class="dropdown">
-          <button>
-            <h5>Internet Banking <i class="fa fa-caret-down"></i></h5>
-          </button>
+          <button>Internet Banking <i class="fa fa-caret-down"></i></button>
           <ul class="dropdown-content">
-            <li><a href="./login.php">Log in to internet banking</a></li>
+            <li>
+              <?php if (isset($user)) : ?>
+              <a href="./myastrobank.php">Go to My Accounts</a>
+              <?php else : ?>
+              <a href="./login.php">Log in to net banking</a>
+              <?php endif; ?>
+            </li>
             <li><a href="./homeloans.php">Home Loans</a></li>
             <li><a href="./homeloans.php">Personal Loans</a></li>
             <li><a href="./creditcards.php">Credit Cards</a></li>
@@ -127,9 +131,7 @@
           </ul>
         </div>
         <div class="dropdown">
-          <button>
-            <h5>Support <i class="fa fa-caret-down"></i></h5>
-          </button>
+          <button>Support <i class="fa fa-caret-down"></i></button>
           <ul class="dropdown-content">
             <li><a href="./contact.php">Contact Astro Bank</a></li>
             <li><a href="./insurance.php">Make a claim</a></li>
@@ -138,9 +140,7 @@
           </ul>
         </div>
         <div class="dropdown">
-          <button>
-            <h5>Media and Links <i class="fa fa-caret-down"></i></h5>
-          </button>
+          <button>Media and Links <i class="fa fa-caret-down"></i></button>
           <ul class="dropdown-content">
             <li><a href="./about.php">About Astro Bank</a></li>
             <li><a href="./about.php">Astro Bank App</a></li>
@@ -151,14 +151,23 @@
       <div class="copyright">
         <p>&copy; 2023 Oenghus Walsh</p>
         <div class="socialMedia">
-          <a title="Facebook" href="#"
-            ><img class="mediaIcon" src="./Images/facebook.png" alt=""
+          <a href="#"
+            ><img
+              class="mediaIcon"
+              src="./Images/facebook.png"
+              alt="Facebook Icon"
           /></a>
-          <a title="YouTube" href="#"
-            ><img class="mediaIcon" src="./Images/youtube-32.png" alt=""
+          <a href="#"
+            ><img
+              class="mediaIcon"
+              src="./Images/youtube-32.png"
+              alt="YouTube Icon"
           /></a>
-          <a title="Twitter" href="#"
-            ><img class="mediaIcon" src="./Images/twitter.png" alt=""
+          <a href="#"
+            ><img
+              class="mediaIcon"
+              src="./Images/twitter.png"
+              alt="Twiter Icon"
           /></a>
         </div>
       </div>

@@ -22,5 +22,5 @@ Setup:
 1: Copy the ICTWEB440 folder into "C:\xampp\htdocs\"
 2: Launch XAMPP control panel and start Apache and Mysql
 3: Navigate to http://localhost/phpmyadmin/ in your browser.
-4: Create a database called astrobank by and importing the astrobank sql file located in the Database folder.
+4: Create a database called astrobank by and importing the AstroBank sql file located in the "ICTWEB440_Review_Oenghus_Walsh\Database\" folder.
 5: Navigate to http://localhost/ictweb440/astrobank/index.php

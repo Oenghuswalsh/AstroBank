@@ -391,45 +391,45 @@ if (isset($_SESSION["user_id"])) {
     <div class="statement">
         <div class="accountLogs">
             <div class="accountName">
-                <span class="accountSpecs">
+                <div class="accountSpecs">
                     <h3>Account Name:</h3>
-                </span><br>
-                <span class="accountSpecs">
+                </div><br>
+                <div class="accountSpecs">
                     <h3>Account Number:</h3>
-                </span><br>
+                </div><br>
                 <a href="./myastrobank.php" class="link mobileDisplays">Back to My Accounts</a>
             </div>
             <div class="accountName">
-                <span class="accountSpecs">
+                <div class="accountSpecs">
                     <?= htmlspecialchars($accountType["account_type"]) ?>
-                </span><br>
-                <span class="accountSpecs">
+                </div><br>
+                <div class="accountSpecs">
                     <?= htmlspecialchars($accountType["account_number"]) ?>
-                </span>
+                </div>
             </div>
         </div>
         <div class="accountLogs">
             <div class="accountName">
-                <span class="accountBalance">
+                <div class="accountBalance">
                     <h3>Available</h3>
-                </span><br>
-                <span class="accountBalance">
+                </div><br>
+                <div class="accountBalance">
                     <h3>Pending</h3>
-                </span><br>
-                <span class="accountBalance">
+                </div><br>
+                <div class="accountBalance">
                     <h3>Balance</h3>
-                </span>
+                </div>
             </div>
             <div class="accountName">
-                <span class="accountBalance">
+                <div class="accountBalance">
                     <?= htmlspecialchars($latestBalance) ?>
-                </span><br>
-                <span class="accountBalance">
+                </div><br>
+                <div class="accountBalance">
                     <?= htmlspecialchars($latestBalance - $latestBalance) ?>
-                </span><br>
-                <span class="accountBalance">
+                </div><br>
+                <div class="accountBalance">
                     <?= htmlspecialchars($latestBalance) ?>
-                </span>
+                </div>
 
             </div>
         </div>
@@ -470,9 +470,7 @@ if (isset($_SESSION["user_id"])) {
         <div class="footerNav">
             <h4>AstroBank</h4>
             <div class="dropdown">
-                <button>
-                    <h5>Internet Banking <i class="fa fa-caret-down"></i></h5>
-                </button>
+                <button>Internet Banking <i class="fa fa-caret-down"></i></button>
                 <ul class="dropdown-content">
                     <li><?php if (isset($user)) : ?>
                             <a href="./myastrobank.php">Go to My Accounts</a>
@@ -487,9 +485,7 @@ if (isset($_SESSION["user_id"])) {
                 </ul>
             </div>
             <div class="dropdown">
-                <button>
-                    <h5>Support <i class="fa fa-caret-down"></i></h5>
-                </button>
+                <button>Support <i class="fa fa-caret-down"></i></button>
                 <ul class="dropdown-content">
                     <li><a href="./contact.php">Contact Astro Bank</a></li>
                     <li><a href="./insurance.php">Make a claim</a></li>
@@ -498,9 +494,7 @@ if (isset($_SESSION["user_id"])) {
                 </ul>
             </div>
             <div class="dropdown">
-                <button>
-                    <h5>Media and Links <i class="fa fa-caret-down"></i></h5>
-                </button>
+                <button>Media and Links <i class="fa fa-caret-down"></i></button>
                 <ul class="dropdown-content">
                     <li><a href="./about.php">About Astro Bank</a></li>
                     <li><a href="./about.php">Astro Bank App</a></li>

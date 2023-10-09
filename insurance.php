@@ -364,9 +364,7 @@ if (isset($_SESSION["user_id"])) {
         <div class="footerNav">
             <h4>AstroBank</h4>
             <div class="dropdown">
-                <button>
-                    <h5>Internet Banking <i class="fa fa-caret-down"></i></h5>
-                </button>
+                <button>Internet Banking <i class="fa fa-caret-down"></i></button>
                 <ul class="dropdown-content">
                     <li><?php if (isset($user)) : ?>
                             <a href="./myastrobank.php">Go to My Accounts</a>
@@ -381,9 +379,7 @@ if (isset($_SESSION["user_id"])) {
                 </ul>
             </div>
             <div class="dropdown">
-                <button>
-                    <h5>Support <i class="fa fa-caret-down"></i></h5>
-                </button>
+                <button>Support <i class="fa fa-caret-down"></i></button>
                 <ul class="dropdown-content">
                     <li><a href="./contact.php">Contact Astro Bank</a></li>
                     <li><a href="./insurance.php">Make a claim</a></li>
@@ -392,9 +388,7 @@ if (isset($_SESSION["user_id"])) {
                 </ul>
             </div>
             <div class="dropdown">
-                <button>
-                    <h5>Media and Links <i class="fa fa-caret-down"></i></h5>
-                </button>
+                <button>Media and Links <i class="fa fa-caret-down"></i></button>
                 <ul class="dropdown-content">
                     <li><a href="./about.php">About Astro Bank</a></li>
                     <li><a href="./about.php">Astro Bank App</a></li>
