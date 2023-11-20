@@ -311,7 +311,7 @@ if (isset($_SESSION["user_id"])) {
             <h2 class="bannerheader">Reach for the stars with Astro Bank</h2><br>
             <h3 class="bannerpara">Personal Loans 24 hour approval</h3>
         </div>
-        <img class="bannerImage" src="./Images/Green_clouds.jpg" alt="">
+        <img class="bannerImage" src="./Images/house_A.png" alt="An image of a house with green garden and a stary evening sky">
     </div>
     <div class="bankingCardSection">
         <div class="bankingCards">
