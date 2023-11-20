@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AstroBank</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Load style sheet -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="./AstroBank/CSS/styles.css" />
+    <script defer src="./AstroBank/JS/script.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <div class="mobileDisplays">
+        <img
+          id="menuIcon"
+          class="collapsibleMenu"
+          src="./AstroBank/Images/navicon-round.png"
+          alt="Hambergur menu icon"
+        />
+        <div>
+          <a href="#">
+            <h1>AstroBank</h1>
+          </a>
+        </div>
+        <img
+          id="searchButton"
+          class="searchIcon"
+          src="./AstroBank/Images/search.png"
+          alt="Search symble icon"
+        />
+      </div>
+      <div class="mobileDisplays">
+        <form class="searchBox" id="searchForm">
+          <button type="submit"><i class="fa fa-search"></i></button>
+          <input type="text" placeholder="Search.." name="search" />
+        </form>
+      </div>
+      <div class="desktopDisplays">
+        <a href="#">
+          <h1>AstroBank</h1>
+        </a>
+      </div>
+      <nav class="desktops">
+        <div id="navMenu" class="button-container">
+          <!-- Navigation buttons in header -->
+          <button class="button" id="banking-button">Banking</button>
+          <button class="button" id="loans-button">Home Loans</button>
+          <button class="button" id="insurance-button">Insurance</button>
+          <button class="button" id="about-button">About Us</button>
+          <button class="button" id="contact-button">Contact Us</button>
+        </div>
+      </nav>
+      <!-- Sign up Login in button and search box for desktop display -->
+      <div class="desktopDisplays">
+        <div class="searchLoginDiv">
+          <!-- Search box and login button -->
+          <div>
+            <div class="button signUpButton">
+              <a href="#" class="link">Sign up</a>
+            </div>
+            <form class="searchBox">
+              <button type="submit"><i class="fa fa-search"></i></button>
+              <input type="text" placeholder="Search.." name="search" />
+            </form>
+          </div>
+          <div>
+            <div class="loginButton">
+              <a href="#" class="link">Log in</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="breadcrumbs">
+      <a href="#">AstroBank/</a>
+    </div>
+
+    <div class="sub-buttons desktops">
+      <!-- Seccond row of Navigation buttons for banking -->
+      <button class="button" id="personal-button">Personal</button>
+      <button class="button" id="business-button">Business</button>
+    </div>
+    <div class="subSubButtons desktops">
+      <!-- Third row of Navigation buttons for banking -->
+      <div class="personal-container">
+        <div class="dropdown mobileDisplays">
+          <div class="button signUpButton">
+            <a href="#" class="link">Sign up</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="button">Accounts</button>
+          <div class="dropdown-content">
+            <!-- links to personal banking content -->
+            <a href="#">Everyday account</a>
+            <a href="#">Savings</a>
+            <a href="#">Term deposit account</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="button">Personal Loans</button>
+          <div class="dropdown-content">
+            <!-- links to personal banking content -->
+            <a href="#">Personal loans</a>
+            <a href="#">Car loans</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="button">Home loans</button>
+          <div class="dropdown-content">
+            <!-- links to personal banking content -->
+            <a href="#">Loan products</a>
+            <a href="#">Interest rates</a>
+            <a href="#">Calculators</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="button">Credits Cards</button>
+          <div class="dropdown-content">
+            <!-- links to personal banking content -->
+            <a href="#">Credit card products</a>
+          </div>
+        </div>
+        <div class="dropdown mobileDisplays">
+          <div class="button loginButton">
+            <a href="#" class="link">Log in</a>
+          </div>
+        </div>
+      </div>
+      <div class="business-container">
+        <div class="dropdown">
+          <button class="button">Accounts</button>
+          <div class="dropdown-content">
+            <!-- links to business banking content -->
+            <a href="#">Business account</a>
+            <a href="#">Trust accounts</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="button">Credit Cards</button>
+          <div class="dropdown-content">
+            <!-- links to business banking content -->
+            <a href="#">Credit card products</a>
+            <a href="#">Lines of credit</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="button">Loans and finance</button>
+          <div class="dropdown-content">
+            <!-- links to business banking content -->
+            <a href="#">Business loans</a>
+            <a href="#">Commerical loans</a>
+            <a href="#">Overdraft accounts</a>
+          </div>
+        </div>
+      </div>
+      <div class="loans-container">
+        <!-- Seccond row of Navigation buttons for home loans -->
+        <div class="dropdown">
+          <button class="button">Loan Products</button>
+          <div class="dropdown-content">
+            <a href="#">Loans</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="button">Interest Rates</button>
+          <div class="dropdown-content">
+            <a href="#">Interest Rates</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="button">Calculators</button>
+          <div class="dropdown-content">
+            <a href="#">Calculators</a>
+          </div>
+        </div>
+      </div>
+      <div class="insurance-container">
+        <!-- Seccond row of Navigation buttons for insurance -->
+        <div class="dropdown">
+          <button class="button">Home and Property</button>
+          <div class="dropdown-content">
+            <!-- links to insurance content -->
+            <a href="#">Home and contents</a>
+            <a href="#">Home building only</a>
+            <a href="#">Contents only</a>
+            <a href="#">Landlord insurance</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="button">Car</button>
+          <div class="dropdown-content">
+            <!-- links to insurance content -->
+            <a href="#">Comprehensive</a>
+            <a href="#">Third party</a>
+            <a href="#">CTP insurance</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="button">Life and Income</button>
+          <div class="dropdown-content">
+            <!-- links to insurance content -->
+            <a href="#">Life insurance</a>
+            <a href="#">Income protection insurance</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="button">Health insurance</button>
+          <div class="dropdown-content">
+            <!-- links to insurance content -->
+            <a href="#">Health insurance</a>
+            <a href="#">Hospital cover</a>
+            <a href="#">Extra cover</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="button">Business insurance</button>
+          <div class="dropdown-content">
+            <!-- links to insurance content -->
+            <a href="#">Compulsory insurance</a>
+            <a href="#">Workers compensation insurance</a>
+            <a href="#">Public liability insurance</a>
+            <a href="#">Asset insurance</a>
+            <a href="#">Professional indemnity insurance</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="button">Claims</button>
+          <div class="dropdown-content">
+            <!-- links to insurance content -->
+            <a href="#">Make a claim</a>
+            <a href="#">Track a claim</a>
+          </div>
+        </div>
+      </div>
+      <div class="about-container">
+        <!-- Seccond row of Navigation buttons for about us -->
+        <div class="dropdown">
+          <button class="button">About Us</button>
+          <div class="dropdown-content">
+            <!-- links to about us content -->
+            <a href="#">About</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="button">Partnerships</button>
+          <div class="dropdown-content">
+            <!-- links to about us content -->
+            <a href="#">About</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="button">Careers</button>
+          <div class="dropdown-content">
+            <!-- links to about us content -->
+            <a href="#">About</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="button">News and Media</button>
+          <div class="dropdown-content">
+            <!-- links to about us content -->
+            <a href="#">Disaster relief support</a>
+            <a href="#">Small business support</a>
+            <a href="#">Environment and net zero efforts</a>
+            <a href="#">Community projects</a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-container">
+        <!-- Seccond row of Navigation buttons for contact us -->
+        <div class="dropdown">
+          <button class="button">Help Options</button>
+          <div class="dropdown-content">
+            <!-- links to contact us content -->
+            <a href="#">Online banking</a>
+            <a href="#">Credit cards</a>
+            <a href="#">Home loans</a>
+            <a href="#">Insurance</a>
+            <a href="#">Lost or stolen cards</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="button">Contact Us</button>
+          <div class="dropdown-content">
+            <!-- links to contact us content -->
+            <a href="#">Email</a>
+            <a href="#">Phone</a>
+            <a href="#">in Branch</a>
+            <a href="#">Chat</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="button">How can we help?</button>
+          <div class="dropdown-content">
+            <!-- links to contact us content -->
+            <a href="#">Chat</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="banner">
+      <div class="bannerH2">
+        <h2 class="bannerheader">Reach for the stars with Astro Bank</h2>
+        <br />
+        <h3 class="bannerpara">Personal Loans 24 hour approval</h3>
+      </div>
+      <img
+        class="bannerImage"
+        src="./AstroBank/Images/house_A.png"
+        alt="An image of a house with green garden and a stary evening sky"
+      />
+    </div>
+    <div class="bankingCardSection">
+      <div class="bankingCards">
+        <h2>Banking</h2>
+        <p>Everyday Accounts</p>
+        <p>Savings Accounts</p>
+        <p>Home Loans</p>
+        <p>Credit Cards</p>
+        <p>Business Accounts</p>
+
+        <a href="#" class="linkButton">Log in to net banking</a>
+      </div>
+      <div class="bankingCards">
+        <h2>Loans Products</h2>
+        <p>Interest Rates</p>
+        <p>Reypayment Calculator</p>
+        <a href="#" class="linkButton">Talk to us about a home loan today</a>
+      </div>
+      <div class="bankingCards">
+        <h2>Insurance</h2>
+        <p>Home and Property</p>
+        <p>Car insurance</p>
+        <p>Health insurance</p>
+        <p>Life insurance</p>
+        <p>Business insurance</p>
+        <a href="#" class="linkButton">Make an insurance claim</a>
+      </div>
+    </div>
+    <div class="newsCardSection">
+      <div class="newsH2">
+        <h2 class="news">News and Events</h2>
+      </div>
+      <div class="bankingCardSection">
+        <div class="newsCards">
+          <img
+            src="./AstroBank/Images/Family_House.jpg"
+            alt="An photo of a family home for sale in the suburs"
+          />
+        </div>
+        <div class="paraCards">
+          <h2>Advice and Blogs</h2>
+          <p>
+            How to make the most of the current Interest rates situation. Habits
+            to help reduce your expenses and increase your savings. Upcoming
+            events, online advice sessions with exports in property investment
+            strategies, share market and investing. How much super do you have?
+            and How much super will you need at retirement?
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="toolCardSection">
+      <div class="toolCards">
+        <h2>Calculators</h2>
+        <p>Home Loans</p>
+        <p>Personal Loans</p>
+        <p>Savings</p>
+        <a href="#" class="linkButton">Calculators</a>
+      </div>
+      <div class="toolCards">
+        <h2>Interest Rates</h2>
+        <p>Compare Rates</p>
+        <p>Mortgage</p>
+        <p>Savings</p>
+        <a href="#" class="linkButton">View rates</a>
+      </div>
+      <div class="toolCards">
+        <h2>Small Businesses</h2>
+        <p>
+          Providing advice and assistance about loans and finances to small
+          business
+        </p>
+        <a href="#" class="linkButton">Contact Us</a>
+      </div>
+      <div class="toolCards">
+        <h2>Disaster Relief</h2>
+        <p>Supporting people struggling through natural disasters</p>
+        <a href="#" class="linkButton">Find out more</a>
+      </div>
+    </div>
+    <footer>
+      <div class="footerNav">
+        <h4>AstroBank</h4>
+        <div class="dropdown">
+          <button>Internet Banking <i class="fa fa-caret-down"></i></button>
+          <ul class="dropdown-content">
+            <li>
+              <a href="#">Log in to net banking</a>
+            </li>
+            <li><a href="#">Home Loans</a></li>
+            <li><a href="#">Personal Loans</a></li>
+            <li><a href="#">Credit Cards</a></li>
+            <li><a href="#">Insurance</a></li>
+          </ul>
+        </div>
+        <div class="dropdown">
+          <button>Support <i class="fa fa-caret-down"></i></button>
+          <ul class="dropdown-content">
+            <li><a href="#">Contact Astro Bank</a></li>
+            <li><a href="#">Make a claim</a></li>
+            <li><a href="#">Find a branch or ATM</a></li>
+            <li><a href="#">Complaints</a></li>
+          </ul>
+        </div>
+        <div class="dropdown">
+          <button>Media and Links <i class="fa fa-caret-down"></i></button>
+          <ul class="dropdown-content">
+            <li><a href="#">About Astro Bank</a></li>
+            <li><a href="#">Astro Bank App</a></li>
+            <li><a href="#">Media</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2023 Oenghus Walsh</p>
+        <div class="socialMedia">
+          <a href="#"
+            ><img
+              class="mediaIcon"
+              src="./AstroBank/Images/facebook.png"
+              alt=""
+          /></a>
+          <a href="#"
+            ><img
+              class="mediaIcon"
+              src="./AstroBank/Images/youtube-32.png"
+              alt=""
+          /></a>
+          <a href="#"
+            ><img class="mediaIcon" src="./AstroBank/Images/twitter.png" alt=""
+          /></a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
